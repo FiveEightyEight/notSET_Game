@@ -492,12 +492,24 @@ const render = (state) => {
             for (let i = 0; i < state.table_state.length; i++) {
 
                 let currentCard = state.table_state[i];
+                if (currentCard.selected) {
 
-                innerHTML += `
+                    innerHTML += `
+                    <div class="col-3 text-center py-1"> 
+                    <a class="badge badge-primary py-5 px-3" data-index=${i}>${currentCard.card_id}</a>
+                    </div>
+                    `;
 
-            <a class="badge badge-secondary col-3 py-5 px-1" data-index=${i}>${currentCard.card_id}</a>
+                } else {
 
-            `;
+                    innerHTML += `
+                    <div class="col-3 text-center py-1"> 
+                    <a class="badge badge-secondary p-5" data-index=${i}>${currentCard.card_id}</a>
+                    </div>
+                    `;
+
+                }
+
             };
 
             table.innerHTML = innerHTML;
