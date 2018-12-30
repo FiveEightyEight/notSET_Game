@@ -376,6 +376,8 @@ const startNewGame = () => {
     state.deck_id = newDeck.deck_id;
     state.deck = newDeck.cards;
     state.remaining = newDeck.remaining;
+    state.table = [];
+    state.table_state = [];
 
     render(state);
 
@@ -418,9 +420,10 @@ const objectifyTable = (table) => {
 info.addEventListener('click', e => {
 
     if (e.target.matches('.js-new-game')) {
-
         // start new game
         startNewGame();
+
+        
 
     } else if (e.target.matches('.js-no-set')) {
 
@@ -431,6 +434,14 @@ info.addEventListener('click', e => {
 
 });
 
+
+table.addEventListener('click', e => {
+
+    if(e.target.matches('.js-card')) {
+        console.log('clicking card')
+    }
+
+});
 
 
 
@@ -496,7 +507,7 @@ const render = (state) => {
 
                     innerHTML += `
                     <div class="col-3 text-center py-1"> 
-                    <a class="badge badge-primary py-5 px-3" data-index=${i}>${currentCard.card_id}</a>
+                    <a class="badge badge-primary py-5 px-3 js-card" data-index=${i}>${currentCard.card_id}</a>
                     </div>
                     `;
 
@@ -504,7 +515,7 @@ const render = (state) => {
 
                     innerHTML += `
                     <div class="col-3 text-center py-1"> 
-                    <a class="badge badge-secondary p-5" data-index=${i}>${currentCard.card_id}</a>
+                    <a class="badge badge-secondary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
                     </div>
                     `;
 
