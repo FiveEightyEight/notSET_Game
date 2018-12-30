@@ -416,17 +416,23 @@ console.log(`select card`)
     const currentCard = state.table_state[index];
     const keys = Object.keys(chkSet);
     if (keys.length > 0) {
-        for (let i = 0; i < keys.length; i++) {
-            if (!chkSet[state.table_state[index].card_id]) {
+        // for (let i = 0; i < keys.length; i++) {
+            if (!chkSet[currentCard.card_id]) {
                 console.log(`adding key`);
                 state.table_state[index].selected = true;
-                chkSet[state.table_state[index].card_id] = index;
-            } else if (chkSet[state.table_state[index].card_id]) {
+                chkSet[currentCard.card_id] = index;
+            } else {
+
                 console.log(`deleting key`);
                 delete chkSet[state.table_state[index].card_id];
                 state.table_state[index].selected = false;
             }
-        };
+            // else if (chkSet[state.table_state[index].card_id]) {
+                // console.log(`deleting key`);
+                // delete chkSet[state.table_state[index].card_id];
+                // state.table_state[index].selected = false;
+            // }
+        // };
     } else {
         state.table_state[index].selected = true;
         chkSet[state.table_state[index].card_id] = index;
@@ -434,6 +440,7 @@ console.log(`select card`)
 
     console.log(`select card end`)
     render(state);
+    // if()
 
 };
 
