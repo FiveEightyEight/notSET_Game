@@ -518,9 +518,12 @@ const checkHand = (hand) => {
 const draw = (noSet) => {
 
     table.innerHTML = '';
-    
-    const play = set.play(state.table, state.deck);
 
+    const play = set.play(state.table, state.deck);
+    state.table = [];
+    state.table_state = [];
+    // render(state);
+    state.remaining = play.deck.length;
     state.deck = play.deck;
     state.table = play.table;
     state.noSet = play.noSet;
