@@ -372,7 +372,8 @@ let chkSet = {};
 const startNewGame = () => {
 
     table.innerHTML = '';
-    const newDeck = set.buildDeck(true);
+    // const newDeck = set.buildDeck(true);
+    const newDeck = set.buildDeck(); // FOR TESTING
 
     state.play = true;
     state.deck_id = newDeck.deck_id;
@@ -471,15 +472,27 @@ const selectCard = (index) => {
 
 
 const checkHand = (hand) => {
+
     const keys = Object.keys(hand);
 
     if (set.checkSet(keys[0], keys[1], keys[2])) {
 
+        // IT'S A SET!
+        // The keys = the IDs of the SET of cards
+        state.sets.push(keys);
+
         for (let i = 0; i < keys.length; i ++){
+            
+            // the index of the cards in state.table
+            const index = hand[keys[i]];
 
-            const key = keys[i];
+            // remove from selected
+            state.table_state[index].selected = false;
 
-            state.table_state[chkSet[key]].selected = false;
+            // splice(index, 1) from table and table_state
+            state.table.splice(index, 1);
+            state.table_state.splice(index, 1);
+        
         };
 
         chkSet = {};
@@ -489,8 +502,8 @@ const checkHand = (hand) => {
     } else {
 
         for (let i = 0; i < keys.length; i ++){
-            const key = keys[i];
-            state.table_state[chkSet[key]].selected = false;
+            const index = hand[keys[i]];
+            state.table_state[index].selected = false;
         };
         chkSet = {};
         render(state);
