@@ -372,8 +372,8 @@ let chkSet = {};
 const startNewGame = () => {
 
     table.innerHTML = '';
-    // const newDeck = set.buildDeck(true);
-    const newDeck = set.buildDeck(); // FOR TESTING
+    const newDeck = set.buildDeck(true);
+    // const newDeck = set.buildDeck(); // FOR TESTING
 
     state.play = true;
     state.deck_id = newDeck.deck_id;
@@ -532,6 +532,14 @@ const draw = (noSet) => {
     render(state);
 };
 
+const checkField = (state) => {
+    if(set.checkTable(state.table)){
+        alert(`THERE IS A SET`)
+    } else {
+        alert(`There is NO SET but I haven't implemented this yet lol`)
+    }
+};
+
 
 // ------------>>          ------------>>
 // ------------>>  Events  ------------>>
@@ -549,7 +557,7 @@ info.addEventListener('click', e => {
 
         // check if no there is no set
 
-        alert(`Not Implemented`)
+        checkField(state);
     }
 
 });
