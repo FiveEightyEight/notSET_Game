@@ -326,6 +326,7 @@ const set = (function () {
         drawCard,
         display,
         checkTable,
+        checkSet,
         play,
     }
 
@@ -412,60 +413,91 @@ const objectifyTable = (table) => {
 };
 
 const selectCard = (index) => {
-console.log(`select card`)
+    console.log(`select card`)
     const currentCard = state.table_state[index];
 
     let keys = Object.keys(chkSet);
     switch (keys.length) {
 
         case 0:
-        state.table_state[index].selected = true;
-        chkSet[state.table_state[index].card_id] = index;
-        render(state);
-        break;
+            state.table_state[index].selected = true;
+            chkSet[state.table_state[index].card_id] = index;
+            render(state);
+            break;
 
         case 1:
-        if (!chkSet[currentCard.card_id]) {
+            if (!chkSet[currentCard.card_id]) {
 
-            state.table_state[index].selected = true;
-            chkSet[currentCard.card_id] = index;
-        } else {
+                state.table_state[index].selected = true;
+                chkSet[currentCard.card_id] = index;
+            } else {
 
-            delete chkSet[state.table_state[index].card_id];
-            state.table_state[index].selected = false;
-        }
-        render(state);
-        break;
+                delete chkSet[state.table_state[index].card_id];
+                state.table_state[index].selected = false;
+            }
+            render(state);
+            break;
 
         case 2:
-        if (!chkSet[currentCard.card_id]) {
+            if (!chkSet[currentCard.card_id]) {
 
-            state.table_state[index].selected = true;
-            chkSet[currentCard.card_id] = index;
+                state.table_state[index].selected = true;
+                chkSet[currentCard.card_id] = index;
+
+                render(state);
+                checkHand(chkSet);
+
+            } else {
+
+                delete chkSet[state.table_state[index].card_id];
+                state.table_state[index].selected = false;
+                render(state);
+            }
             
-
-        } else {
-
-            delete chkSet[state.table_state[index].card_id];
-            state.table_state[index].selected = false;
-            
-        }
-        render(state);
-        break;
+            break;
 
         case 3:
 
-        if (chkSet[currentCard.card_id]) {
-            delete chkSet[state.table_state[index].card_id];
-            state.table_state[index].selected = false;
-        }
-        render(state);
-        break;
+            if (chkSet[currentCard.card_id]) {
+                delete chkSet[state.table_state[index].card_id];
+                state.table_state[index].selected = false;
+            }
+            render(state);
+            break;
 
     }
-    
+
 };
 
+
+const checkHand = (hand) => {
+    const keys = Object.keys(hand);
+
+    if (set.checkSet(keys[0], keys[1], keys[2])) {
+
+        for (let i = 0; i < keys.length; i ++){
+
+            const key = keys[i];
+
+            state.table_state[chkSet[key]].selected = false;
+        };
+
+        chkSet = {};
+        render(state);
+        // console.log(`SET!`)
+        alert(`SET!`)
+    } else {
+
+        for (let i = 0; i < keys.length; i ++){
+            const key = keys[i];
+            state.table_state[chkSet[key]].selected = false;
+        };
+        chkSet = {};
+        render(state);
+        // console.log(`!SET`)
+        alert(`!SET`)
+    }
+};
 
 
 
