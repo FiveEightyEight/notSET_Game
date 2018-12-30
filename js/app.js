@@ -383,7 +383,8 @@ const startNewGame = () => {
     state.table_state = [];
 
     render(state);
-
+    draw();
+    /*
     const play = set.play(state.table, state.deck);
 
     state.deck = play.deck;
@@ -392,6 +393,7 @@ const startNewGame = () => {
 
     objectifyTable(state.table);
     render(state);
+    */
 
 };
 
@@ -499,6 +501,7 @@ const checkHand = (hand) => {
         render(state);
         // console.log(`SET!`)
         alert(`SET!`)
+        draw();
     } else {
 
         for (let i = 0; i < keys.length; i ++){
@@ -509,9 +512,22 @@ const checkHand = (hand) => {
         render(state);
         // console.log(`!SET`)
         alert(`!SET`)
-    }
+    };
 };
 
+const draw = (noSet) => {
+
+    table.innerHTML = '';
+    
+    const play = set.play(state.table, state.deck);
+
+    state.deck = play.deck;
+    state.table = play.table;
+    state.noSet = play.noSet;
+
+    objectifyTable(state.table);
+    render(state);
+};
 
 
 // ------------>>          ------------>>
