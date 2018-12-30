@@ -322,6 +322,7 @@ const play = (table, deck, noSet = false) => {
 
 return {
     buildDeck,
+    buildCard,
     drawCard,
     display,
     checkTable,
@@ -377,6 +378,34 @@ const startNewGame = () => {
     state.remaining = newDeck.remaining;
 
     render(state);
+
+    const play = set.play(state.table, state.deck);
+
+    state.deck = play.deck;
+    state.table = play.table;
+    state.noSet = play.noSet;
+
+    objectifyTable(state.table);
+    render(state);
+
+};
+
+
+
+const objectifyTable = (table) => {
+
+    // will convert the unique ids in state.table into objects, 
+    // store them  in state.table_state
+
+    for (let i = 0; i < table.length; i ++){
+        // current id card is built, then pushed into the state
+        state.table_state.push(set.buildCard(table[i]));
+
+        // adds a selected key to the card that was just built of false
+        state.table_state[state.table_state.length - 1]['selected'] = false;
+    };
+
+    render(state);
 };
 
 
@@ -393,6 +422,11 @@ info.addEventListener('click', e => {
         // start new game
         startNewGame();
         
+    } else if (e.target.matches('.js-no-set')) {
+        
+        // check if no there is no set
+
+        alert(`Not Implemented`)
     }
 
 });
@@ -410,8 +444,10 @@ let state = {
     deck_id: '',
     deck: [],
     table: [],
+    table_state: [],
     sets: [],
     remaining: 0,
+    noSet: false,
 
 };
 
@@ -445,6 +481,10 @@ const render = (state) => {
 
         `;
 
+        // render table
+        for (let i = 0; i < state.table_state.length; i ++ ) {
+
+        };
 
 
 
