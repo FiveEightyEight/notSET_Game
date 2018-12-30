@@ -414,34 +414,56 @@ const objectifyTable = (table) => {
 const selectCard = (index) => {
 console.log(`select card`)
     const currentCard = state.table_state[index];
-    const keys = Object.keys(chkSet);
-    if (keys.length > 0) {
-        // for (let i = 0; i < keys.length; i++) {
-            if (!chkSet[currentCard.card_id]) {
-                console.log(`adding key`);
-                state.table_state[index].selected = true;
-                chkSet[currentCard.card_id] = index;
-            } else {
 
-                console.log(`deleting key`);
-                delete chkSet[state.table_state[index].card_id];
-                state.table_state[index].selected = false;
-            }
-            // else if (chkSet[state.table_state[index].card_id]) {
-                // console.log(`deleting key`);
-                // delete chkSet[state.table_state[index].card_id];
-                // state.table_state[index].selected = false;
-            // }
-        // };
-    } else {
+    let keys = Object.keys(chkSet);
+    switch (keys.length) {
+
+        case 0:
         state.table_state[index].selected = true;
         chkSet[state.table_state[index].card_id] = index;
+        render(state);
+        break;
+
+        case 1:
+        if (!chkSet[currentCard.card_id]) {
+
+            state.table_state[index].selected = true;
+            chkSet[currentCard.card_id] = index;
+        } else {
+
+            delete chkSet[state.table_state[index].card_id];
+            state.table_state[index].selected = false;
+        }
+        render(state);
+        break;
+
+        case 2:
+        if (!chkSet[currentCard.card_id]) {
+
+            state.table_state[index].selected = true;
+            chkSet[currentCard.card_id] = index;
+            
+
+        } else {
+
+            delete chkSet[state.table_state[index].card_id];
+            state.table_state[index].selected = false;
+            
+        }
+        render(state);
+        break;
+
+        case 3:
+
+        if (chkSet[currentCard.card_id]) {
+            delete chkSet[state.table_state[index].card_id];
+            state.table_state[index].selected = false;
+        }
+        render(state);
+        break;
+
     }
-
-    console.log(`select card end`)
-    render(state);
-    // if()
-
+    
 };
 
 
