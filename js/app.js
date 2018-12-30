@@ -351,6 +351,7 @@ const set = (function () {
 // const set = require('./set.js');
 const info = document.querySelector('.js-info');
 const table = document.querySelector('.js-table');
+let chkSet = {};
 
 
 
@@ -410,6 +411,32 @@ const objectifyTable = (table) => {
     render(state);
 };
 
+const selectCard = (index) => {
+console.log(`select card`)
+    const currentCard = state.table_state[index];
+    const keys = Object.keys(chkSet);
+    if (keys.length > 0) {
+        for (let i = 0; i < keys.length; i++) {
+            if (!chkSet[state.table_state[index].card_id]) {
+                console.log(`adding key`);
+                state.table_state[index].selected = true;
+                chkSet[state.table_state[index].card_id] = index;
+            } else if (chkSet[state.table_state[index].card_id]) {
+                console.log(`deleting key`);
+                delete chkSet[state.table_state[index].card_id];
+                state.table_state[index].selected = false;
+            }
+        };
+    } else {
+        state.table_state[index].selected = true;
+        chkSet[state.table_state[index].card_id] = index;
+    }
+
+    console.log(`select card end`)
+    render(state);
+
+};
+
 
 
 
@@ -423,7 +450,7 @@ info.addEventListener('click', e => {
         // start new game
         startNewGame();
 
-        
+
 
     } else if (e.target.matches('.js-no-set')) {
 
@@ -437,8 +464,11 @@ info.addEventListener('click', e => {
 
 table.addEventListener('click', e => {
 
-    if(e.target.matches('.js-card')) {
-        console.log('clicking card')
+    if (e.target.matches('.js-card')) {
+        const index = e.target.getAttribute('data-index');
+
+        selectCard(index);
+
     }
 
 });
@@ -507,7 +537,7 @@ const render = (state) => {
 
                     innerHTML += `
                     <div class="col-3 text-center py-1"> 
-                    <a class="badge badge-primary py-5 px-3 js-card" data-index=${i}>${currentCard.card_id}</a>
+                    <a class="badge badge-primary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
                     </div>
                     `;
 
