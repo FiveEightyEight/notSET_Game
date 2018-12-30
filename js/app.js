@@ -645,8 +645,10 @@ const render = (state) => {
                 } else {
 
                     innerHTML += `
-                    <div class="col-3 text-center py-1"> 
-                    <a class="badge badge-secondary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
+                    <div class="col-3 text-center border-bottom py-1"> 
+                    <span class='font-weight-bold col-12'>${currentCard.color.toUpperCase()}   ${currentCard.shape}</span>
+                    <a class="badge badge-secondary p-5 col-12 js-card" data-index=${i}>${currentCard.card_id}</a>
+                    <span class='font-weight-bold col-12'>${currentCard.number}   ${currentCard.shading.toUpperCase()}</span>
                     </div>
                     `;
 
