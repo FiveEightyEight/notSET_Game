@@ -544,7 +544,7 @@ const draw = (noSet) => {
 
         table.innerHTML = '';
 
-        const play = set.play(state.table, state.deck, true);
+        const play = set.play(state.table, state.deck, noSet);
         state.table = [];
         state.table_state = [];
         // render(state);
