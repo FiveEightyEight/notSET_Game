@@ -540,8 +540,19 @@ const checkHand = (cb) => {
 
 const draw = (noSet) => {
 
-
-    if (noSet) {
+    if (noSet && state.deck.length <= 0) {
+        alert(`
+        NO SETS REMAIN
+         !!GAME OVER!!
+        `)
+        return;
+    } else if (state.deck.length <= 0 && set.checkTable(state.table)) {
+        alert(`
+        NO SETS REMAIN
+         !!GAME OVER!!
+        `)
+        return;
+    } else if (noSet) {
 
         table.innerHTML = '';
 
@@ -667,9 +678,9 @@ const render = (state) => {
         <a class="btn btn-danger btn-lg js-new-game" href="#" role="button">New Game</a>
 
         <p class='pt-4 h6 font-weight-bold'>Deck ID: ${state.deck_id}</p>
-        <p class='h5 font-weight-bold'>Cards Left in Deck: ${state.remaining}</p>
-        <p class='pt-4 h6 font-weight-bold'>Score: ${state.sets.length - state.mistakes}</p>
-        <p class='pt-4 h6 font-weight-bold'>Sets Made: ${state.sets.length}</p>
+        <p class='h6 font-weight-bold'>Cards Left in Deck: ${state.remaining}</p>
+        <p class='pt-1 h5 font-weight-bold'>Score: ${state.sets.length - state.mistakes}</p>
+        <p class='pt-1 h5 font-weight-bold'>Sets Made: ${state.sets.length}</p>
 
         `;
 
@@ -688,7 +699,7 @@ const render = (state) => {
 
                     innerHTML += `
                     <div class="col-3 text-center py-3"> 
-                    <img src='assets/images/cards/${currentCard.card_id}.png' class='border border-danger col-12 js-card' data-index=${i}>
+                    <img src='assets/images/cards/${currentCard.card_id}.png' class='box-shadow border border-danger col-12 js-card' data-index=${i}>
                     </div>
                     `;
                     // <a class="badge badge-primary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
