@@ -291,11 +291,84 @@ const set = (function () {
 
         } else if (noSet) {
             if (table.length < 15) {
+
                 for (let i = table.length; i < 15; i++) {
                     const drawnCard = deck.shift();
                     table.push(drawnCard);
                 };
+
+                /*
+                for (let i = 0; i < 15; i++) {
+                    if (table[i] === undefined) {
+                        const drawnCard = deck.shift();
+                        table[i] = drawnCard;
+                    };
+                }
+                */
             };
+            return {
+                table,
+                deck,
+                noSet,
+            };
+
+        } else if (table.includes(undefined) && table.length > 12) {
+
+            // Player found a SET after hitting NO SET
+            // no cards will be drawn
+            // any cards outside the array of 12 will be moved into the table/field
+            
+
+            newTable = [];
+            for (let i = 0; i < 12; i++) {
+                if (table[i] === undefined) {
+
+                    if (table[12]) {
+                        
+                        newTable.push(table[12])
+                        table[12] = false;
+
+                    } else if (table[13]) {
+
+                        newTable.push(table[13])
+                        table[13] = false;
+                        
+                    } else if (table[14]) {
+
+                        newTable.push(table[14])
+                        table[14] = false;
+                    }
+
+
+
+                } else {
+                    newTable.push(table[i])
+                }
+            }
+
+            table = newTable;
+
+            return {
+                table,
+                deck,
+                noSet,
+            };
+        } else if (table.includes(undefined)) {
+
+
+            /*
+            for (let i = table.length; i < 12; i++) {
+                const drawnCard = deck.shift();
+                table.push(drawnCard);
+            };
+            */
+            for (let i = 0; i < 12; i++) {
+                if (table[i] === undefined) {
+                    const drawnCard = deck.shift();
+                    table[i] = drawnCard;
+                };
+            }
+
             return {
                 table,
                 deck,
@@ -304,17 +377,26 @@ const set = (function () {
 
         } else {
             if (table.length < 12) {
-                for (let i = table.length; i < 12; i++) {
-                    const drawnCard = deck.shift();
-                    table.push(drawnCard);
-                };
+                /*
+                   for (let i = table.length; i < 12; i++) {
+                       const drawnCard = deck.shift();
+                       table.push(drawnCard);
+                   };
+                   */
+                for (let i = 0; i < 12; i++) {
+                    if (table[i] === undefined) {
+                        const drawnCard = deck.shift();
+                        table[i] = drawnCard;
+                    };
+                }
             };
             return {
                 table,
                 deck,
                 noSet,
             };
-        };
+
+        }
     };
 
 
@@ -460,7 +542,7 @@ const selectCard = (index) => {
                 state.table_state[index].selected = true;
                 hand[currentCard.card_id] = index;
 
-                render(state);
+                // render(state);
                 checkHand(complete => {
                     if (complete) {
                         draw();
@@ -506,7 +588,8 @@ const checkHand = (cb) => {
         for (let i = 0; i < state.table.length; i++) {
             let currentCard = state.table[i]
             if (currentCard === keys[0] || currentCard === keys[1] || currentCard === keys[2]) {
-
+                newTable.push(undefined);
+                newTable_state.push(undefined);
             } else {
                 newTable.push(currentCard);
                 newTable_state.push(state.table_state[i])
@@ -538,7 +621,7 @@ const checkHand = (cb) => {
     };
 };
 
-const draw = (noSet) => {
+const draw = (noSet = false) => {
 
     if (noSet && state.deck.length <= 0) {
         alert(`

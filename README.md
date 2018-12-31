@@ -15,6 +15,7 @@ For real though... Game is just for fun. Primarily to test my ability as a devel
 
 ## To Do
 
+* **Tutorial**: A tutorial or manual on how to play.
 * **Time**: Tracks elapsed time.
 * **Design**: Design & aesthetics are a *WIP*.
 * **Code**: Code needs cleaning. 
