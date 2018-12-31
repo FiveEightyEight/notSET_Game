@@ -647,10 +647,7 @@ const render = (state) => {
 
                     innerHTML += `
                     <div class="col-3 text-center py-1"> 
-
                     <img src='assets/images/cards/${currentCard.card_id}.png' class='border border-danger col-12 js-card' data-index=${i}>
-                   
-
                     </div>
                     `;
                     // <a class="badge badge-primary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
@@ -658,10 +655,7 @@ const render = (state) => {
 
                     innerHTML += `
                     <div class="col-3 text-center border-bottom py-1"> 
-                    
                     <img src='assets/images/cards/${currentCard.card_id}.png' class='col-12 js-card' data-index=${i}>
-                    
-                    
                     </div>
                     `;
 
