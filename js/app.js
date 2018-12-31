@@ -352,7 +352,7 @@ const set = (function () {
 // const set = require('./set.js');
 const info = document.querySelector('.js-info');
 const table = document.querySelector('.js-table');
-let chkSet = {};
+let hand = {};
 
 
 
@@ -419,40 +419,40 @@ const selectCard = (index) => {
     console.log(`select card`)
     const currentCard = state.table_state[index];
 
-    let keys = Object.keys(chkSet);
+    let keys = Object.keys(hand);
     switch (keys.length) {
 
         case 0:
             state.table_state[index].selected = true;
-            chkSet[state.table_state[index].card_id] = index;
+            hand[state.table_state[index].card_id] = index;
             render(state);
             break;
 
         case 1:
-            if (!chkSet[currentCard.card_id]) {
+            if (!hand[currentCard.card_id]) {
 
                 state.table_state[index].selected = true;
-                chkSet[currentCard.card_id] = index;
+                hand[currentCard.card_id] = index;
             } else {
 
-                delete chkSet[state.table_state[index].card_id];
+                delete hand[state.table_state[index].card_id];
                 state.table_state[index].selected = false;
             }
             render(state);
             break;
 
         case 2:
-            if (!chkSet[currentCard.card_id]) {
+            if (!hand[currentCard.card_id]) {
 
                 state.table_state[index].selected = true;
-                chkSet[currentCard.card_id] = index;
+                hand[currentCard.card_id] = index;
 
                 render(state);
-                checkHand(chkSet);
+                checkHand(hand);
 
             } else {
 
-                delete chkSet[state.table_state[index].card_id];
+                delete hand[state.table_state[index].card_id];
                 state.table_state[index].selected = false;
                 render(state);
             }
@@ -497,7 +497,7 @@ const checkHand = (hand) => {
 
         };
 
-        chkSet = {};
+        hand = {};
         render(state);
         // console.log(`SET!`)
         // alert(`SET!`)
@@ -508,7 +508,7 @@ const checkHand = (hand) => {
             const index = hand[keys[i]];
             state.table_state[index].selected = false;
         };
-        chkSet = {};
+        hand = {};
         render(state);
         // console.log(`!SET`)
         // alert(`!SET`)
