@@ -50,7 +50,7 @@ const set = (function () {
         }
         const shapes = { // ['ov', 'sq', 'di'];
             ov: 'oval',
-            sq: 'square',
+            sq: 'squiggle',
             di: 'diamond',
         }
         const numbers = { // ['n1', 'n2', 'n3'];
@@ -416,7 +416,7 @@ const objectifyTable = (table) => {
 };
 
 const selectCard = (index) => {
-    console.log(`select card`)
+
     const currentCard = state.table_state[index];
 
     let keys = Object.keys(hand);
@@ -448,7 +448,11 @@ const selectCard = (index) => {
                 hand[currentCard.card_id] = index;
 
                 render(state);
-                checkHand(hand);
+                checkHand(complete => {
+                    if (complete) {
+                        draw();
+                    };
+                });
 
             } else {
 
@@ -459,7 +463,7 @@ const selectCard = (index) => {
 
             break;
 
-        // case 3:
+            // case 3:
 
             // if (chkSet[currentCard.card_id]) {
             //     delete chkSet[state.table_state[index].card_id];
@@ -473,35 +477,40 @@ const selectCard = (index) => {
 };
 
 
-const checkHand = (hand) => {
+const checkHand = (cb) => {
 
     const keys = Object.keys(hand);
+    let complete = false;
 
     if (set.checkSet(keys[0], keys[1], keys[2])) {
 
         // IT'S A SET!
         // The keys = the IDs of the SET of cards
         state.sets.push(keys);
+        const newTable = []
+        const newTable_state = []
 
-        for (let i = 0; i < keys.length; i++) {
+        for (let i = 0; i < state.table.length; i++) {
+            let currentCard = state.table[i]
+            if (currentCard === keys[0] || currentCard === keys[1] || currentCard === keys[2]) {
 
-            // the index of the cards in state.table
-            const index = hand[keys[i]];
+            } else {
+                newTable.push(currentCard);
+                newTable_state.push(state.table_state[i])
+            }
 
-            // remove from selected
-            state.table_state[index].selected = false;
-
-            // splice(index, 1) from table and table_state
-            state.table.splice(index, 1);
-            state.table_state.splice(index, 1);
-
+            if (i === keys.length - 1) {
+                complete = true;
+            }
         };
 
+        state.table = newTable;
+        state.table_state = newTable_state;
         hand = {};
-        render(state);
+        // render(state);
         // console.log(`SET!`)
         // alert(`SET!`)
-        draw();
+        cb(complete);
     } else {
 
         for (let i = 0; i < keys.length; i++) {
@@ -638,10 +647,10 @@ const render = (state) => {
 
                     innerHTML += `
                     <div class="col-3 text-center py-1"> 
-                    <span class='font-weight-bold col-12'>${currentCard.color.toUpperCase()}   ${currentCard.shape}</span>
+
                     <img src='assets/images/cards/${currentCard.card_id}.png' class='border border-danger col-12 js-card' data-index=${i}>
                    
-                    <span class='font-weight-bold col-12'>${currentCard.number}   ${currentCard.shading.toUpperCase()}</span>
+
                     </div>
                     `;
                     // <a class="badge badge-primary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
@@ -649,15 +658,17 @@ const render = (state) => {
 
                     innerHTML += `
                     <div class="col-3 text-center border-bottom py-1"> 
-                    <span class='font-weight-bold col-12'>${currentCard.color.toUpperCase()}   ${currentCard.shape}</span>
+                    
                     <img src='assets/images/cards/${currentCard.card_id}.png' class='col-12 js-card' data-index=${i}>
                     
-                    <span class='font-weight-bold col-12'>${currentCard.number}   ${currentCard.shading.toUpperCase()}</span>
+                    
                     </div>
                     `;
 
                 }
+                // <span class='font-weight-bold col-12'>${currentCard.color.toUpperCase()}   ${currentCard.shape}</span>
                 // <a class="badge badge-secondary p-5 col-12 js-card" data-index=${i}>${currentCard.card_id}</a>
+                // <span class='font-weight-bold col-12'>${currentCard.number}   ${currentCard.shading.toUpperCase()}</span>
             };
 
             table.innerHTML = innerHTML;
