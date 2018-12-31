@@ -531,6 +531,7 @@ const checkHand = (cb) => {
             state.table_state[index].selected = false;
         };
         hand = {};
+        state.mistakes += 1;
         render(state);
         // console.log(`!SET`)
         // alert(`!SET`)
@@ -637,6 +638,7 @@ let state = {
     sets: [],
     remaining: 0,
     noSet: false,
+    mistakes: 0,
 
 };
 
@@ -666,6 +668,7 @@ const render = (state) => {
 
         <p class='pt-4 h6 font-weight-bold'>Deck ID: ${state.deck_id}</p>
         <p class='h5 font-weight-bold'>Cards Left in Deck: ${state.remaining}</p>
+        <p class='pt-4 h6 font-weight-bold'>Score: ${state.sets.length - state.mistakes}</p>
         <p class='pt-4 h6 font-weight-bold'>Sets Made: ${state.sets.length}</p>
 
         `;
