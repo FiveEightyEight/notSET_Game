@@ -317,14 +317,14 @@ const set = (function () {
             // Player found a SET after hitting NO SET
             // no cards will be drawn
             // any cards outside the array of 12 will be moved into the table/field
-            
+
 
             newTable = [];
             for (let i = 0; i < 12; i++) {
                 if (table[i] === undefined) {
 
                     if (table[12]) {
-                        
+
                         newTable.push(table[12])
                         table[12] = false;
 
@@ -332,7 +332,7 @@ const set = (function () {
 
                         newTable.push(table[13])
                         table[13] = false;
-                        
+
                     } else if (table[14]) {
 
                         newTable.push(table[14])
@@ -672,7 +672,20 @@ const draw = (noSet = false) => {
 };
 
 const checkField = (state) => {
+    /*
+     const firstSet = set.checkTable(state.table)
+    console.log (firstSet);
+
+
+    if (firstSet) {
+        console.log(firstSet);
+        alert(`THERE IS A SET`)
+    }
+    */
+
+
     if (set.checkTable(state.table)) {
+
         alert(`THERE IS A SET`)
     } else {
         // state.noSet = true;
@@ -698,7 +711,7 @@ info.addEventListener('click', e => {
     } else if (e.target.matches('.js-no-set')) {
 
         // check if no there is no set
-
+        console.log(`checking field`)
         checkField(state);
     }
 
