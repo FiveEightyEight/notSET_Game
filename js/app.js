@@ -312,7 +312,50 @@ const set = (function () {
                 noSet,
             };
 
-        } else if (table.includes(undefined) && table.length > 12) {
+        } else if (table.includes(undefined) && table.length > 15) {
+
+            // 
+            // After Player found a SET WITH 18 cards on the field
+            // no cards will be drawn
+            // any cards outside the array of 15 will be moved into the table/field
+
+
+            newTable = [];
+            for (let i = 0; i < 15; i++) {
+                if (table[i] === undefined) {
+
+                    if (table[15]) {
+
+                        newTable.push(table[15])
+                        table[15] = false;
+
+                    } else if (table[16]) {
+
+                        newTable.push(table[16])
+                        table[16] = false;
+
+                    } else if (table[17]) {
+
+                        newTable.push(table[17])
+                        table[17] = false;
+                    }
+
+
+
+                } else {
+                    newTable.push(table[i])
+                }
+            }
+
+            table = newTable;
+
+            return {
+                table,
+                deck,
+                noSet,
+            };
+
+        } else if (table.includes(undefined) && table.length > 12 && table.length < 15) {
 
             // Player found a SET after hitting NO SET
             // no cards will be drawn
