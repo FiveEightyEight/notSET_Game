@@ -770,7 +770,7 @@ const render = (state) => {
 
         // game has started
         info.innerHTML = `
-        <a class="btn btn-warning btn-lg js-no-set" href="#" role="button"><strong>NO SET</strong></a>
+        <a class="btn btn-warning btn-lg js-no-set" href="#" role="button"><strong class='js-no-set'>NO SET</strong></a>
         <a class="btn btn-danger btn-lg js-new-game" href="#" role="button">New Game</a>
 
         <p class='pt-4 h6 font-weight-bold'>Deck ID: ${state.deck_id}</p>
