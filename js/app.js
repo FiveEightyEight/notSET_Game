@@ -355,7 +355,7 @@ const set = (function () {
                 noSet,
             };
 
-        } else if (table.includes(undefined) && table.length > 12 && table.length < 15) {
+        } else if (table.includes(undefined) && table.length > 12 && table.length <= 15) {
 
             // Player found a SET after hitting NO SET
             // no cards will be drawn
