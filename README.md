@@ -19,3 +19,7 @@ For real though... Game is just for fun. Primarily to test my ability as a devel
 * **Time**: Tracks elapsed time.
 * **Design**: Design & aesthetics are a *WIP*.
 * **Code**: Code needs cleaning. 
+
+## Known Bugs
+
+* **On Last SET**: When the player makes a SET and there are 0 cards remaining in the deck, the game crashes.
