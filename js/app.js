@@ -276,7 +276,20 @@ const set = (function () {
 
     const play = (table, deck, noSet = false) => {
 
-        if (noSet) {
+        if (noSet && table.length === 15) {
+            for (let i = table.length; i < 18; i++) {
+                const drawnCard = deck.shift();
+                table.push(drawnCard);
+            };
+
+            return {
+                table,
+                deck,
+                noSet,
+
+            };
+
+        } else if (noSet) {
             if (table.length < 15) {
                 for (let i = table.length; i < 15; i++) {
                     const drawnCard = deck.shift();
@@ -526,26 +539,51 @@ const checkHand = (cb) => {
 
 const draw = (noSet) => {
 
-    table.innerHTML = '';
 
-    const play = set.play(state.table, state.deck);
-    state.table = [];
-    state.table_state = [];
-    // render(state);
-    state.remaining = play.deck.length;
-    state.deck = play.deck;
-    state.table = play.table;
-    state.noSet = play.noSet;
+    if (noSet) {
 
-    objectifyTable(state.table);
-    render(state);
+        table.innerHTML = '';
+
+        const play = set.play(state.table, state.deck, true);
+        state.table = [];
+        state.table_state = [];
+        // render(state);
+        state.remaining = play.deck.length;
+        state.deck = play.deck;
+        state.table = play.table;
+        state.noSet = play.noSet;
+
+        objectifyTable(state.table);
+        render(state);
+
+    } else {
+
+        table.innerHTML = '';
+
+        const play = set.play(state.table, state.deck);
+        state.table = [];
+        state.table_state = [];
+        // render(state);
+        state.remaining = play.deck.length;
+        state.deck = play.deck;
+        state.table = play.table;
+        state.noSet = play.noSet;
+
+        objectifyTable(state.table);
+        render(state);
+
+    }
+
 };
 
 const checkField = (state) => {
     if (set.checkTable(state.table)) {
         alert(`THERE IS A SET`)
     } else {
-        alert(`There is NO SET but I haven't implemented this yet lol`)
+        // state.noSet = true;
+        draw(true);
+        alert('this feature is in beta and not fully tested');
+        // alert(`There is NO SET but I haven't implemented this yet lol`)
     }
 };
 
@@ -623,7 +661,7 @@ const render = (state) => {
 
         // game has started
         info.innerHTML = `
-        <a class="btn btn-warning btn-lg js-no-set" href="#" role="button">NO SET</a>
+        <a class="btn btn-warning btn-lg js-no-set" href="#" role="button"><strong>NO SET</strong></a>
         <a class="btn btn-danger btn-lg js-new-game" href="#" role="button">New Game</a>
 
         <p class='pt-4 h6 font-weight-bold'>Deck ID: ${state.deck_id}</p>
@@ -646,7 +684,7 @@ const render = (state) => {
                 if (currentCard.selected) {
 
                     innerHTML += `
-                    <div class="col-3 text-center py-1"> 
+                    <div class="col-3 text-center py-3"> 
                     <img src='assets/images/cards/${currentCard.card_id}.png' class='border border-danger col-12 js-card' data-index=${i}>
                     </div>
                     `;
@@ -654,7 +692,7 @@ const render = (state) => {
                 } else {
 
                     innerHTML += `
-                    <div class="col-3 text-center border-bottom py-1"> 
+                    <div class="col-3 text-center border-bottom py-3"> 
                     <img src='assets/images/cards/${currentCard.card_id}.png' class='col-12 js-card' data-index=${i}>
                     </div>
                     `;
