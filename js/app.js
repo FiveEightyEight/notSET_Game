@@ -456,17 +456,17 @@ const selectCard = (index) => {
                 state.table_state[index].selected = false;
                 render(state);
             }
-            
+
             break;
 
-        case 3:
+        // case 3:
 
-            if (chkSet[currentCard.card_id]) {
-                delete chkSet[state.table_state[index].card_id];
-                state.table_state[index].selected = false;
-            }
-            render(state);
-            break;
+            // if (chkSet[currentCard.card_id]) {
+            //     delete chkSet[state.table_state[index].card_id];
+            //     state.table_state[index].selected = false;
+            // }
+            // render(state);
+            // break;
 
     }
 
@@ -483,8 +483,8 @@ const checkHand = (hand) => {
         // The keys = the IDs of the SET of cards
         state.sets.push(keys);
 
-        for (let i = 0; i < keys.length; i ++){
-            
+        for (let i = 0; i < keys.length; i++) {
+
             // the index of the cards in state.table
             const index = hand[keys[i]];
 
@@ -494,24 +494,24 @@ const checkHand = (hand) => {
             // splice(index, 1) from table and table_state
             state.table.splice(index, 1);
             state.table_state.splice(index, 1);
-        
+
         };
 
         chkSet = {};
         render(state);
         // console.log(`SET!`)
-        alert(`SET!`)
+        // alert(`SET!`)
         draw();
     } else {
 
-        for (let i = 0; i < keys.length; i ++){
+        for (let i = 0; i < keys.length; i++) {
             const index = hand[keys[i]];
             state.table_state[index].selected = false;
         };
         chkSet = {};
         render(state);
         // console.log(`!SET`)
-        alert(`!SET`)
+        // alert(`!SET`)
     };
 };
 
@@ -533,7 +533,7 @@ const draw = (noSet) => {
 };
 
 const checkField = (state) => {
-    if(set.checkTable(state.table)){
+    if (set.checkTable(state.table)) {
         alert(`THERE IS A SET`)
     } else {
         alert(`There is NO SET but I haven't implemented this yet lol`)
@@ -639,23 +639,25 @@ const render = (state) => {
                     innerHTML += `
                     <div class="col-3 text-center py-1"> 
                     <span class='font-weight-bold col-12'>${currentCard.color.toUpperCase()}   ${currentCard.shape}</span>
-                    <a class="badge badge-primary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
+                    <img src='assets/images/cards/${currentCard.card_id}.png' class='border border-danger col-12 js-card' data-index=${i}>
+                   
                     <span class='font-weight-bold col-12'>${currentCard.number}   ${currentCard.shading.toUpperCase()}</span>
                     </div>
                     `;
-
+                    // <a class="badge badge-primary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
                 } else {
 
                     innerHTML += `
                     <div class="col-3 text-center border-bottom py-1"> 
                     <span class='font-weight-bold col-12'>${currentCard.color.toUpperCase()}   ${currentCard.shape}</span>
-                    <a class="badge badge-secondary p-5 col-12 js-card" data-index=${i}>${currentCard.card_id}</a>
+                    <img src='assets/images/cards/${currentCard.card_id}.png' class='col-12 js-card' data-index=${i}>
+                    
                     <span class='font-weight-bold col-12'>${currentCard.number}   ${currentCard.shading.toUpperCase()}</span>
                     </div>
                     `;
 
                 }
-
+                // <a class="badge badge-secondary p-5 col-12 js-card" data-index=${i}>${currentCard.card_id}</a>
             };
 
             table.innerHTML = innerHTML;

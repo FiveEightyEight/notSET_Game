@@ -6,8 +6,8 @@ For real though... Game is just for fun and to test my ability as a developer.
 
 ## Built With
 
-* [VScode](https://code.visualstudio.com/) -  Source code editor
-* [Bootstrap](https://getbootstrap.com) - CSS used
+* [VScode](https://code.visualstudio.com/) -  Code Editor
+* [Bootstrap](https://getbootstrap.com) - CSS
 
 ## Authors
-* **Robert Abreu** - *CodeMonkey* - [FiveEightyEight](https://github.com/FiveEightyEight)
+* **Robert Abreu** - *Project Manager* - [FiveEightyEight](https://github.com/FiveEightyEight)
