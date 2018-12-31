@@ -686,7 +686,7 @@ const checkField = (state) => {
 
     if (set.checkTable(state.table)) {
 
-        alert(`THERE IS A SET`)
+        alert(`THERE IS A SET!`);
     } else {
         // state.noSet = true;
         draw(true);
