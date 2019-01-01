@@ -779,7 +779,8 @@ table.addEventListener('click', e => {
 // ------------>>          ------------>>
 
 let state = {
-
+    
+    tut: false,
     play: false,
     deck_id: '',
     deck: [],
@@ -806,6 +807,9 @@ const render = (state) => {
         info.innerHTML = `
 
             <a class="btn btn-danger btn-lg js-new-game" href="#" role="button">New Game</a>
+            <div class="col-12 p-2">
+            <a class="btn btn-secondary rounded-pill px-4 js-rules" style="font-size: 2rem; color: white;"> <i class="fas fa-question"></i> </a>
+            </div>
 
         `;
 
@@ -818,8 +822,9 @@ const render = (state) => {
 
         <p class='pt-4 h6 font-weight-bold'>Deck ID: ${state.deck_id}</p>
         <p class='h6 font-weight-bold'>Cards Left in Deck: ${state.remaining}</p>
-        <p class='pt-1 h5 font-weight-bold'>Score: ${state.sets.length - state.mistakes}</p>
-        <p class='pt-1 h5 font-weight-bold'>Sets Made: ${state.sets.length}</p>
+
+        <span class='pt-1 px-2 h5 font-weight-bold'>Score: ${state.sets.length - state.mistakes}</span>
+        <span class='pt-1 px-2 h5 font-weight-bold'>Sets Made: ${state.sets.length}</span>
 
         `;
 
@@ -867,3 +872,5 @@ const render = (state) => {
         `;
     };
 };
+
+render(state);
