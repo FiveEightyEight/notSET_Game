@@ -747,7 +747,7 @@ const checkField = (state) => {
     } else {
         // state.noSet = true;
         draw(true);
-        alert('this feature is in beta and not fully tested');
+        // alert('this feature is in beta and not fully tested');
         // alert(`There is NO SET but I haven't implemented this yet lol`)
     }
 };
