@@ -257,12 +257,21 @@ const set = (function () {
 
         for (let i = 0; i < table.length - 2; i++) {
             // first card
+            if (!table[i]) {
+                continue;
+            }
             let card1 = table[i];
             for (let j = (i + 1); j < table.length - 1; j++) {
                 // second card
+                if (!table[j]) {
+                    continue;
+                }
                 let card2 = table[j];
                 for (let k = (i + 2); k < table.length; k++) {
                     // third card
+                    if (!table[k]) {
+                        continue;
+                    }
                     let card3 = table[k];
                     if (checkSet(card1, card2, card3)) {
                         return [card1, card2, card3];
@@ -672,10 +681,16 @@ const draw = (noSet = false) => {
          !!GAME OVER!!
         `)
         return;
-    } else if (state.deck.length <= 0 && set.checkTable(state.table)) {
+    } else if (state.deck.length <= 0 && !set.checkTable(state.table)) {
         alert(`
         NO SETS REMAIN
          !!GAME OVER!!
+        `)
+        return;
+    } else if (state.deck.length <= 0) {
+        alert(`
+            NO MORE CARDS 
+            LEFT TO DRAW.
         `)
         return;
     } else if (noSet) {
@@ -779,7 +794,7 @@ table.addEventListener('click', e => {
 // ------------>>          ------------>>
 
 let state = {
-    
+
     tut: false,
     play: false,
     deck_id: '',
@@ -874,3 +889,18 @@ const render = (state) => {
 };
 
 render(state);
+
+
+/*
+    // ---- To Do ---- // 
+
+
+    1. FIX end game conditions
+
+    2. Add Tutorial
+
+    3. Add Hints
+
+
+
+*/
