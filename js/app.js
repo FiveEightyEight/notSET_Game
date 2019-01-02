@@ -518,6 +518,7 @@ let hand = {};
 
 const startNewGame = () => {
 
+    state.rules = false;
     table.innerHTML = '';
     const newDeck = set.buildDeck(true);
     // const newDeck = set.buildDeck(); // FOR TESTING
@@ -729,17 +730,6 @@ const draw = (noSet = false) => {
 };
 
 const checkField = (state) => {
-    /*
-     const firstSet = set.checkTable(state.table)
-    console.log (firstSet);
-
-
-    if (firstSet) {
-        console.log(firstSet);
-        alert(`THERE IS A SET`)
-    }
-    */
-
 
     if (set.checkTable(state.table)) {
         state.mistakes += 1;
@@ -751,6 +741,11 @@ const checkField = (state) => {
         // alert('this feature is in beta and not fully tested');
         // alert(`There is NO SET but I haven't implemented this yet lol`)
     }
+};
+
+const rules = () => {
+    state.rules = true;
+    render(state);
 };
 
 
@@ -774,7 +769,7 @@ info.addEventListener('click', e => {
     } else if (e.target.matches('.js-rules')) {
 
         // render rules and tutorial button
-        // rules();
+        rules();
     }
 
 });
@@ -799,7 +794,7 @@ table.addEventListener('click', e => {
 
 let state = {
 
-    tut: false,
+    rules: false,
     play: false,
     deck_id: '',
     deck: [],
@@ -823,7 +818,19 @@ const render = (state) => {
     if (!state.play) {
         // game hasn't started
 
-        info.innerHTML = `
+        if (state.rules) {
+
+            info.innerHTML = `
+            <a class="btn btn-danger btn-lg js-new-game" href="#" role="button">New Game</a>
+            <div class="col-12 p-2">
+
+            </div>
+
+            `;
+
+        } else {
+
+            info.innerHTML = `
 
             <a class="btn btn-danger btn-lg js-new-game" href="#" role="button">New Game</a>
             <div class="col-12 p-2">
@@ -831,7 +838,7 @@ const render = (state) => {
             </div>
 
         `;
-
+        }
     } else if (state.play) {
 
         // game has started
