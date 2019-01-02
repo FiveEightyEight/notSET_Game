@@ -690,10 +690,6 @@ const draw = (noSet = false) => {
         render(state);
         return;
     } else if (state.deck.length <= 0) {
-        alert(`
-            NO MORE CARDS 
-            LEFT TO DRAW.
-        `)
         render(state);
         return;
     } else if (noSet) {
