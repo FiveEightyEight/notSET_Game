@@ -680,18 +680,21 @@ const draw = (noSet = false) => {
         NO SETS REMAIN
          !!GAME OVER!!
         `)
+        render(state);
         return;
     } else if (state.deck.length <= 0 && !set.checkTable(state.table)) {
         alert(`
         NO SETS REMAIN
          !!GAME OVER!!
         `)
+        render(state);
         return;
     } else if (state.deck.length <= 0) {
         alert(`
             NO MORE CARDS 
             LEFT TO DRAW.
         `)
+        render(state);
         return;
     } else if (noSet) {
 
@@ -852,7 +855,9 @@ const render = (state) => {
             let innerHTML = '';
 
             for (let i = 0; i < state.table_state.length; i++) {
-
+                if (!state.table_state[i]) {
+                    continue;
+                }
                 let currentCard = state.table_state[i];
                 if (currentCard.selected) {
 
@@ -900,6 +905,8 @@ render(state);
     2. Add Tutorial
 
     3. Add Hints
+
+    4. Have a second checkTable func that loops backwards
 
 
 
