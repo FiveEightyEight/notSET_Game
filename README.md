@@ -22,4 +22,4 @@ For real though... Game is just for fun. Primarily to test my ability as a devel
 
 ## Known Bugs
 
-* **Nil**: Needs more testing
+* **N/A**: Needs more testing
