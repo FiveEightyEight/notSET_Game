@@ -742,7 +742,8 @@ const checkField = (state) => {
 
 
     if (set.checkTable(state.table)) {
-
+        state.mistakes += 1;
+        render(state);
         alert(`THERE IS A SET!`);
     } else {
         // state.noSet = true;
@@ -770,6 +771,10 @@ info.addEventListener('click', e => {
         // check if no there is no set
         console.log(`checking field`)
         checkField(state);
+    } else if (e.target.matches('.js-rules')) {
+
+        // render rules and tutorial button
+        // rules();
     }
 
 });
@@ -822,7 +827,7 @@ const render = (state) => {
 
             <a class="btn btn-danger btn-lg js-new-game" href="#" role="button">New Game</a>
             <div class="col-12 p-2">
-            <a class="btn btn-secondary rounded-pill px-4 js-rules" style="font-size: 2rem; color: white;"> <i class="fas fa-question"></i> </a>
+            <a class="btn btn-secondary rounded-pill px-4 bounceInUp animated js-rules" style="font-size: 2rem; color: white;"> <i class="fas fa-question js-rules"></i> </a>
             </div>
 
         `;
@@ -859,7 +864,7 @@ const render = (state) => {
 
                     innerHTML += `
                     <div class="col-3 text-center py-3"> 
-                    <img src='assets/images/cards/${currentCard.card_id}.png' class='box-shadow border border-danger col-12 js-card' data-index=${i}>
+                    <img src='assets/images/cards/${currentCard.card_id}.png' class='box-shadow border border-danger col-12 pulse animated js-card' data-index=${i}>
                     </div>
                     `;
                     // <a class="badge badge-primary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
