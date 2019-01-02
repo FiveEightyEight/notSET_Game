@@ -22,4 +22,4 @@ For real though... Game is just for fun. Primarily to test my ability as a devel
 
 ## Known Bugs
 
-* **On Last SET**: When the player makes a SET and there are 0 cards remaining in the deck, the game crashes.
+* **Nil**: Needs more testing
