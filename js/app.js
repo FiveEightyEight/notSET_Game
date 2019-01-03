@@ -115,14 +115,7 @@ const set = (function () {
     };
 
     const checkFeatures = (c1, c2, c3) => {
-        /*
-            console.log(`
-                checking features
-                card 1: ${c1}
-                card 2: ${c2}
-                card 3: ${c3}
-            `);
-            */
+
         if (c1 === c2 && c1 === c3) {
             // console.log(`all the same`);
             return true;
@@ -743,10 +736,63 @@ const checkField = (state) => {
     }
 };
 
+// --------------- Tutorial Functions ------------- >>  //  
+
 const rules = () => {
     state.rules = true;
     render(state);
 };
+
+const renderTutorial = (page, tutorial) => {
+
+    switch (page) {
+
+        case 0:
+
+            return `
+        
+        <h1 class='fadeIn animated'> Work In Progress</h1>
+        <p class='fadeIn animated'> :-)  </p>
+
+        PAGE 1
+
+        `;
+
+        case 1:
+
+            return `
+        
+        PAGE 2
+
+        `;
+
+        case 2:
+
+            return `
+        
+        PAGE 3
+
+        `;
+
+        case 3:
+
+            return `
+        
+        PAGE 4
+
+        `;
+
+        case 4:
+
+            return `
+        
+        PAGE 5
+
+        `;
+    };
+
+};
+
 
 
 // ------------>>          ------------>>
@@ -770,6 +816,19 @@ info.addEventListener('click', e => {
 
         // render rules and tutorial button
         rules();
+    } else if (e.target.matches('.js-chev-left')) {
+        if (tutorial.page > 0) {
+            tutorial.page -= 1;
+            render(state);
+        };
+
+    } else if (e.target.matches('.js-chev-right')) {
+
+        if (tutorial.page < 4) {
+            tutorial.page += 1;
+            render(state);
+        };
+
     }
 
 });
@@ -807,6 +866,12 @@ let state = {
 
 };
 
+const tutorial = {
+    page: 0,
+    deck: [],
+    table: [],
+    table_state: [],
+};
 
 // ------------>>          ------------>>
 // ------------>>  Render  ------------>>
@@ -823,6 +888,29 @@ const render = (state) => {
             info.innerHTML = `
             <a class="btn btn-danger btn-lg js-new-game" href="#" role="button">New Game</a>
             <div class="col-12 p-2">
+                    
+            </div>
+
+            <div class='row border js-tutorial'>
+
+                <div class='col-12 text-center content-center js-tut-slide'>
+                    ${renderTutorial(tutorial.page)}
+                </div>
+
+                <div class="col-12 text-center content-center">
+
+                
+                    <div class=''>
+                        <a class='js-chev-left' style='font-size: 2rem'> <i class="fas fa-chevron-left js-chev-left"></i> </a>
+                    </div>
+
+
+                    <div class=''>
+                        <a class='js-chev-right'  style='font-size: 2rem'> <i class="fas fa-chevron-right js-chev-right"></i> </a>
+                    </div>
+
+
+                </div>
 
             </div>
 
