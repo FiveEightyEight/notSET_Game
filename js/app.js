@@ -751,10 +751,32 @@ const renderTutorial = (page, tutorial) => {
 
             return `
         
-        <h1 class='fadeIn animated'> Work In Progress</h1>
-        <p class='fadeIn animated'> :-)  </p>
+            <div class='col-12 text-center content-center js-tut-slide'>
+                <h1 class='fadeIn animated'> Work In Progress</h1>
+                <p class='fadeIn animated'> :-)  </p>
+            </div>
 
-        PAGE 1
+            <div class="row col-12 content-center p-2">
+
+                <div class='col-12'>
+
+
+
+                    <a class='btn btn-light py-1 pl-3 pr-2 disabled js-chev-left' style='font-size: 2rem'> 
+                        <i class="fas fa-chevron-left js-chev-left"></i> 
+                    </a>
+
+                    <span class='mb-5 pb-2'>Page: ${page+1}</span>
+
+                    <a class='btn btn-light py-1 pr-3 pl-2 js-chev-right'  style='font-size: 2rem'> 
+                        <i class="fas fa-chevron-right js-chev-right"></i> 
+                    </a>
+
+
+                </div>
+                    
+                
+            </div>
 
         `;
 
@@ -762,7 +784,29 @@ const renderTutorial = (page, tutorial) => {
 
             return `
         
-        PAGE 2
+            <div class='col-12 text-center content-center js-tut-slide'>
+
+
+            </div>
+
+            <div class="row col-12 content-center p-2">
+
+                <div class='col-12'>
+
+                    <a class='btn btn-light py-1 pl-3 pr-2 js-chev-left' style='font-size: 2rem'> 
+                        <i class="fas fa-chevron-left js-chev-left"></i> 
+                    </a>
+
+                    <span class='mb-5 pb-2'>Page: ${page+1}</span>
+
+                    <a class='btn btn-light py-1 pr-3 pl-2 js-chev-right'  style='font-size: 2rem'> 
+                        <i class="fas fa-chevron-right js-chev-right"></i> 
+                    </a>
+
+                </div>
+                    
+                
+            </div>
 
         `;
 
@@ -770,7 +814,29 @@ const renderTutorial = (page, tutorial) => {
 
             return `
         
-        PAGE 3
+            <div class='col-12 text-center content-center js-tut-slide'>
+
+
+            </div>
+
+            <div class="row col-12 content-center p-2">
+
+                <div class='col-12'>
+
+                    <a class='btn btn-light py-1 pl-3 pr-2 js-chev-left' style='font-size: 2rem'> 
+                        <i class="fas fa-chevron-left js-chev-left"></i> 
+                    </a>
+
+                    <span class='mb-5 pb-2'>Page: ${page+1}</span>
+
+                    <a class='btn btn-light py-1 pr-3 pl-2 js-chev-right'  style='font-size: 2rem'> 
+                        <i class="fas fa-chevron-right js-chev-right"></i> 
+                    </a>
+
+                </div>
+                    
+                
+            </div>
 
         `;
 
@@ -778,7 +844,29 @@ const renderTutorial = (page, tutorial) => {
 
             return `
         
-        PAGE 4
+            <div class='col-12 text-center content-center js-tut-slide'>
+
+
+            </div>
+
+            <div class="row col-12 content-center p-2">
+
+                <div class='col-12'>
+
+                        <a class='btn btn-light py-1 pl-3 pr-2 js-chev-left' style='font-size: 2rem'> 
+                            <i class="fas fa-chevron-left js-chev-left"></i> 
+                        </a>
+
+                        <span class='mb-5 pb-2'>Page: ${page+1}</span>
+
+                        <a class='btn btn-light py-1 pr-3 pl-2 js-chev-right'  style='font-size: 2rem'> 
+                        <i class="fas fa-chevron-right js-chev-right"></i> 
+                        </a>
+
+                </div>
+                    
+                
+            </div>
 
         `;
 
@@ -786,7 +874,29 @@ const renderTutorial = (page, tutorial) => {
 
             return `
         
-        PAGE 5
+            <div class='col-12 text-center content-center js-tut-slide'>
+
+
+            </div>
+
+            <div class="row col-12 content-center p-2">
+
+                <div class='col-12'>
+
+                <a class='btn btn-light py-1 pl-3 pr-2 js-chev-left' style='font-size: 2rem'> 
+                    <i class="fas fa-chevron-left js-chev-left"></i> 
+                </a>
+
+                <span class='mb-5 pb-2'>Page: ${page+1}</span>
+
+                <a class='btn btn-light py-1 pr-3 pl-2 disabled js-chev-right'  style='font-size: 2rem'> 
+                    <i class="fas fa-chevron-right js-chev-right"></i> 
+                </a>
+
+                </div>
+                    
+                
+            </div>
 
         `;
     };
@@ -885,32 +995,16 @@ const render = (state) => {
 
         if (state.rules) {
 
+
             info.innerHTML = `
             <a class="btn btn-danger btn-lg js-new-game" href="#" role="button">New Game</a>
             <div class="col-12 p-2">
                     
             </div>
 
-            <div class='row border js-tutorial'>
+            <div class='row bg-light border js-tutorial'>
 
-                <div class='col-12 text-center content-center js-tut-slide'>
-                    ${renderTutorial(tutorial.page)}
-                </div>
-
-                <div class="col-12 text-center content-center">
-
-                
-                    <div class=''>
-                        <a class='js-chev-left' style='font-size: 2rem'> <i class="fas fa-chevron-left js-chev-left"></i> </a>
-                    </div>
-
-
-                    <div class=''>
-                        <a class='js-chev-right'  style='font-size: 2rem'> <i class="fas fa-chevron-right js-chev-right"></i> </a>
-                    </div>
-
-
-                </div>
+                ${renderTutorial(tutorial.page)}
 
             </div>
 
