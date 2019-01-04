@@ -941,7 +941,7 @@ const renderTutorial = (page) => {
 
             return `
         
-            ${tutChevron(page)}
+            ${tutChevron(page, 'right')}
             <div class='col-12 text-center content-center js-tut-slide'>
 
                 ${tutExamples('sd', 'n2', 'sq', true)}
