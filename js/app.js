@@ -1076,13 +1076,13 @@ info.addEventListener('click', e => {
 
 document.addEventListener('keyup', e => {
 
-    if (e.keyCode === 37) { // left
+    if (e.keyCode === 37 && state.rules) { // left
         if (tutorial.page > 0) {
             tutorial.page -= 1;
             render(state);
         };
 
-    } else if (e.keyCode === 39) { // right
+    } else if (e.keyCode === 39 && state.rules) { // right
 
         if (tutorial.page < 4) {
             tutorial.page += 1;
