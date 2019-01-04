@@ -108,6 +108,29 @@ const set = (function () {
         return Math.random().toString(36).substr(2, 9);
     };
 
+    const objectifyTable = (table) => {
+
+        // will convert the unique ids in state.table into objects, 
+        // store them  in state.table_state
+    
+        const objTable = [];
+    
+        for (let i = 0; i < table.length; i++) {
+            // current id card is built, then pushed into the state
+            // state.table_state.push(set.buildCard(table[i]));
+    
+            objTable.push(set.buildCard(table[i]));
+    
+            // adds a selected key to the card that was just built of false
+            // state.table_state[state.table_state.length - 1]['selected'] = false;
+    
+            objTable[objTable.length - 1]['selected'] = false;;
+        };
+    
+        // render(state);
+        return objTable;
+    };
+
     const pushToAllDecks = (deck_id, cards) => {
         allDecks[deck_id] = {
             cards
@@ -463,6 +486,7 @@ const set = (function () {
     return {
         buildDeck,
         buildCard,
+        objectifyTable,
         drawCard,
         display,
         checkTable,
@@ -540,21 +564,7 @@ const startNewGame = () => {
 
 
 
-const objectifyTable = (table) => {
 
-    // will convert the unique ids in state.table into objects, 
-    // store them  in state.table_state
-
-    for (let i = 0; i < table.length; i++) {
-        // current id card is built, then pushed into the state
-        state.table_state.push(set.buildCard(table[i]));
-
-        // adds a selected key to the card that was just built of false
-        state.table_state[state.table_state.length - 1]['selected'] = false;
-    };
-
-    render(state);
-};
 
 const selectCard = (index) => {
 
@@ -699,7 +709,7 @@ const draw = (noSet = false) => {
         state.table = play.table;
         state.noSet = play.noSet;
 
-        objectifyTable(state.table);
+        state.table_state = set.objectifyTable(state.table);
         render(state);
 
     } else {
@@ -715,7 +725,7 @@ const draw = (noSet = false) => {
         state.table = play.table;
         state.noSet = play.noSet;
 
-        objectifyTable(state.table);
+        state.table_state = set.objectifyTable(state.table);
         render(state);
 
     }
