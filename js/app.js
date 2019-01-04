@@ -970,7 +970,7 @@ const renderTutorial = (page) => {
 
                     <div class="col-4 text-center py-3">
                         <img src='assets/images/cards/tutorial/tutST.png' class='fadeIn animated col-12'>
-                        <span class='h4'>STRIPES</span>
+                        <span class='h4'>STRIPED</span>
                     </div>
 
                     <div class="col-4 text-center py-3">
@@ -1028,7 +1028,7 @@ const renderTutorial = (page) => {
 
         return `
         
-        
+
         `;
     };
 
@@ -1072,6 +1072,24 @@ info.addEventListener('click', e => {
 
     }
 
+});
+
+document.addEventListener('keyup', e => {
+
+    if (e.keyCode === 37) { // left
+        if (tutorial.page > 0) {
+            tutorial.page -= 1;
+            render(state);
+        };
+
+    } else if (e.keyCode === 39) { // right
+
+        if (tutorial.page < 4) {
+            tutorial.page += 1;
+            render(state);
+        };
+
+    }
 });
 
 
