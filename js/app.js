@@ -750,11 +750,12 @@ const checkField = (state) => {
 
 const rules = () => {
     state.rules = true;
-    
-    const tutPlay = set.play(tutorial.table, set.buildDeck());
+    // let tutPlay = set.buildDeck();
+    // tutPlay = set.play(tutorial.table, tutPlay);
 
-    tutorial.deck = tutPlay.deck;
-    tutorial.table = tutPlay.table;
+    // tutorial.deck = tutPlay.deck;
+    // tutorial.table = tutPlay.table;
+    // tutorial.table_state = set.objectifyTable(tutorial.table);
 
     /*
     tutorial = {
@@ -775,12 +776,18 @@ const renderTutorial = (page) => {
 
             return `
         
-            <div class='col-12 text-center content-center js-tut-slide'>
-                <h1 class='fadeIn animated'> Work In Progress</h1>
-                <p class='fadeIn animated'> :-)  </p>
+            <div class='mt-3 col-12 text-center content-center js-tut-slide'>
+                <h1 class='fadeIn animated display-4'>Rules: </h1>
+                <p class='fadeIn animated h5'>
+                <span>The object of the game is to identify a <strong>'SET'</strong> of three cards from 12 cards laid out on the field.</span>
+                <br>
+                <span><u>Each</u> card has a variation of the following <strong><u>four features</u></strong>:</span>
+                </p>
             </div>
 
             <div class="row col-12 content-center p-2">
+
+                
 
                 <div class='col-12'>
 
@@ -809,9 +816,28 @@ const renderTutorial = (page) => {
             return `
         
             <div class='col-12 text-center content-center js-tut-slide'>
-                <img src>
+                <h1 class='fadeIn animated display-4'>Shape</h1>
+                
+                <div class='row'>
+                    <div class="col-4 text-center py-3"> 
+                        <img src='assets/images/cards/tutorial/tutOV.png' class='fadeIn animated col-12'>
+                        <span class='h4'>TEAR</span>
+                    </div>
+
+                    <div class="col-4 text-center py-3"> 
+                        <img src='assets/images/cards/tutorial/tutDI.png' class='fadeIn animated col-12'>
+                        <span class='h4'>TRIANGLE</span>
+                     </div>
+
+                     <div class="col-4 text-center py-3"> 
+                        <img src='assets/images/cards/tutorial/tutSQ.png' class='fadeIn animated col-12'>
+                        <span class='h4'>STAR</span>
+                    </div>
+                </div>
 
             </div>
+
+            
 
             <div class="row col-12 content-center p-2">
 
@@ -839,7 +865,24 @@ const renderTutorial = (page) => {
             return `
         
             <div class='col-12 text-center content-center js-tut-slide'>
+                <h1 class='fadeIn animated display-4'>Color</h1>
+                
+                <div class='row'>
+                    <div class="col-4 text-center py-3">  
+                        <img src='assets/images/cards/tutorial/tutRD.png' class='fadeIn animated col-12'>
+                        <span class='h4'>RED</span>
+                    </div>
 
+                    <div class="col-4 text-center py-3"> 
+                        <img src='assets/images/cards/tutorial/tutGR.png' class='fadeIn animated col-12'>
+                        <span class='h4'>GREEN</span>
+                    </div>
+
+                    <div class="col-4 text-center py-3"> 
+                        <img src='assets/images/cards/tutorial/tutPP.png' class='fadeIn animated col-12'>
+                        <span class='h4'>PURPLE</span>
+                    </div>
+                </div>
 
             </div>
 
@@ -869,7 +912,24 @@ const renderTutorial = (page) => {
             return `
         
             <div class='col-12 text-center content-center js-tut-slide'>
+                <h1 class='fadeIn animated display-4'>Number</h1>
+                
+                <div class='row'>
+                    <div class="col-4 text-center py-3"> 
+                        <img src='assets/images/cards/tutorial/tutN1.png' class='fadeIn animated col-12'>
+                        <span class='h4'>ONE</span>
+                    </div>
 
+                    <div class="col-4 text-center py-3">
+                        <img src='assets/images/cards/tutorial/tutN2.png' class='fadeIn animated col-12'>
+                        <span class='h4'>TWO</span>
+                    </div>
+
+                    <div class="col-4 text-center py-3">
+                        <img src='assets/images/cards/tutorial/tutN3.png' class='fadeIn animated col-12'>
+                        <span class='h4'>THREE</span>
+                    </div>
+                </div>
 
             </div>
 
@@ -900,6 +960,24 @@ const renderTutorial = (page) => {
         
             <div class='col-12 text-center content-center js-tut-slide'>
 
+                <h1 class='fadeIn animated display-4'>Shading</h1>
+                    
+                <div class='row'>
+                    <div class="col-4 text-center py-3">
+                        <img src='assets/images/cards/tutorial/tutSD.png' class='fadeIn animated col-12'>
+                        <span class='h4'>SOLID</span>
+                    </div>
+
+                    <div class="col-4 text-center py-3">
+                        <img src='assets/images/cards/tutorial/tutST.png' class='fadeIn animated col-12'>
+                        <span class='h4'>STRIPES</span>
+                    </div>
+
+                    <div class="col-4 text-center py-3">
+                        <img src='assets/images/cards/tutorial/tutOL.png' class='fadeIn animated col-12'>
+                        <span class='h4'>OUTLINED</span>
+                    </div>
+                </div>
 
             </div>
 
@@ -922,6 +1000,35 @@ const renderTutorial = (page) => {
                 
             </div>
 
+        `;
+
+        case 5:
+
+        return `
+        
+        
+        
+        
+        `;  
+
+        case 6:
+
+        return `
+        
+        
+        `;
+
+        case 7:
+
+        return `
+        
+        `;
+        
+        case 8: 
+
+        return `
+        
+        
         `;
     };
 
