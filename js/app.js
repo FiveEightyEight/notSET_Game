@@ -49,9 +49,9 @@ const set = (function () {
             gr: 'green',
         }
         const shapes = { // ['ov', 'sq', 'di'];
-            ov: 'oval',
-            sq: 'squiggle',
-            di: 'diamond',
+            ov: 'drop',
+            sq: 'star',
+            di: 'triangle',
         }
         const numbers = { // ['n1', 'n2', 'n3'];
             n1: 'one',
@@ -740,10 +740,24 @@ const checkField = (state) => {
 
 const rules = () => {
     state.rules = true;
+    
+    const tutPlay = set.play(tutorial.table, set.buildDeck());
+
+    tutorial.deck = tutPlay.deck;
+    tutorial.table = tutPlay.table;
+
+    /*
+    tutorial = {
+    page: 0,
+    deck: [],
+    table: [],
+    table_state: [],
+    }
+    */
     render(state);
 };
 
-const renderTutorial = (page, tutorial) => {
+const renderTutorial = (page) => {
 
     switch (page) {
 
@@ -785,7 +799,7 @@ const renderTutorial = (page, tutorial) => {
             return `
         
             <div class='col-12 text-center content-center js-tut-slide'>
-
+                <img src>
 
             </div>
 
