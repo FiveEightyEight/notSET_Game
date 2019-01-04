@@ -506,7 +506,22 @@ const set = (function () {
 
 
 
+const infoMap = {
 
+    rd: 'red',
+    pp: 'purple',
+    gr: 'green',
+    ov: 'tear',
+    sq: 'star',
+    di: 'triangle',
+    n1: 'one',
+    n2: 'two',
+    n3: 'three',
+    sd: 'solid',
+    st: 'striped',
+    ol: 'outlined',
+
+};
 
 
 
@@ -893,7 +908,7 @@ const renderTutorial = (page) => {
 
             return `
 
-            ${tutChevron(page, 'right')}
+            ${tutChevron(page)}
         
             <div class='col-12 text-center content-center js-tut-slide'>
 
@@ -918,7 +933,7 @@ const renderTutorial = (page) => {
 
             </div>
 
-            ${tutChevron(page, 'right')}
+            ${tutChevron(page)}
 
         `;
 
@@ -926,7 +941,13 @@ const renderTutorial = (page) => {
 
             return `
         
-        
+            ${tutChevron(page)}
+            <div class='col-12 text-center content-center js-tut-slide'>
+
+                ${tutExamples('sd', 'n2', 'sq', true)}
+
+            </div>
+            ${tutChevron(page, 'right')}
         
         
         `;
@@ -1029,7 +1050,52 @@ const tutChevron = (page, disabled) => {
     };
 };
 
+const tutExamples = (ex1, ex2, ex3, features = false) => {
+    if (features) {
 
+        return `
+
+            <div class='row'>
+                <div class="col-4 text-center py-3">
+                    <img src='assets/images/cards/tutorial/tut${ex1.toUpperCase()}.png' class='fadeIn animated col-12'>
+                    <span class='h4'>${infoMap[ex1].toUpperCase()}</span>
+                </div>
+
+                <div class="col-4 text-center py-3">
+                    <img src='assets/images/cards/tutorial/tut${ex2.toUpperCase()}.png' class='fadeIn animated col-12'>
+                    <span class='h4'>${infoMap[ex2].toUpperCase()}</span>
+                </div>
+
+                <div class="col-4 text-center py-3">
+                    <img src='assets/images/cards/tutorial/tut${ex3.toUpperCase()}.png' class='fadeIn animated col-12'>
+                    <span class='h4'>${infoMap[ex3].toUpperCase()}</span>
+                </div>
+            </div>
+        `
+    } else {
+
+        return `
+
+            <div class='row'>
+                <div class="col-4 text-center py-3">
+                    <img src='assets/images/cards/${ex1}.png' class='fadeIn animated col-12'>
+                    <span class='h4'>SOLID</span>
+                </div>
+
+                <div class="col-4 text-center py-3">
+                    <img src='assets/images/cards/${ex2}.png' class='fadeIn animated col-12'>
+                    <span class='h4'>STRIPED</span>
+                </div>
+
+                <div class="col-4 text-center py-3">
+                    <img src='assets/images/cards/${ex3}.png' class='fadeIn animated col-12'>
+                    <span class='h4'>OUTLINED</span>
+                </div>
+            </div>
+            
+        `
+    }
+}
 
 
 
@@ -1062,7 +1128,7 @@ info.addEventListener('click', e => {
 
     } else if (e.target.matches('.js-chev-right')) {
 
-        if (tutorial.page < 4) {
+        if (tutorial.page < 5) {
             tutorial.page += 1;
             render(state);
         };
@@ -1081,7 +1147,7 @@ document.addEventListener('keyup', e => {
 
     } else if (e.keyCode === 39 && state.rules) { // right
 
-        if (tutorial.page < 4) {
+        if (tutorial.page < 5) {
             tutorial.page += 1;
             render(state);
         };
