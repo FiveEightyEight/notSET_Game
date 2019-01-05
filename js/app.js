@@ -813,24 +813,27 @@ const renderTutorial = (page) => {
             ${tutChevron(page)}
         
             <div class='col-12 text-center content-center js-tut-slide'>
-                <h1 class='fadeIn animated display-4'>Shape</h1>
+                <h1 class='fadeIn animated display-4'><strong><em>Shape</em></strong></h1>
                 
-                <div class='row'>
-                    <div class="col-4 text-center py-3"> 
-                        <img src='assets/images/cards/tutorial/tutOV.png' class='fadeIn animated col-12'>
-                        <span class='h4'>TEAR</span>
-                    </div>
+                ${tutExamples('ov', 'di', 'sq', true)}
 
-                    <div class="col-4 text-center py-3"> 
-                        <img src='assets/images/cards/tutorial/tutDI.png' class='fadeIn animated col-12'>
-                        <span class='h4'>TRIANGLE</span>
-                     </div>
+                <hr>
 
-                     <div class="col-4 text-center py-3"> 
-                        <img src='assets/images/cards/tutorial/tutSQ.png' class='fadeIn animated col-12'>
-                        <span class='h4'>STAR</span>
-                    </div>
-                </div>
+                <h1 class='fadeIn animated display-4'><strong><em>Color</em></strong></h1>
+
+                ${tutExamples('rd', 'gr', 'pp', true)}
+
+                <hr>
+
+                <h1 class='fadeIn animated display-4'><strong><em>Number</em></strong></h1>
+
+                ${tutExamples('n1', 'n2', 'n3', true)}
+
+                <hr>
+
+                <h1 class='fadeIn animated display-4'><strong><em>Shading</em></strong></h1>
+
+                ${tutExamples('sd', 'st', 'ol', true)}
 
             </div>
 
@@ -847,24 +850,20 @@ const renderTutorial = (page) => {
             ${tutChevron(page)}
         
             <div class='col-12 text-center content-center js-tut-slide'>
-                <h1 class='fadeIn animated display-4'>Color</h1>
+
+            <h1 class='fadeIn animated display-4'><strong><em>Examples</em></strong></h1>
                 
-                <div class='row'>
-                    <div class="col-4 text-center py-3">  
-                        <img src='assets/images/cards/tutorial/tutRD.png' class='fadeIn animated col-12'>
-                        <span class='h4'>RED</span>
-                    </div>
+            ${tutExamples('rdovn1sd', 'grdin2st', 'ppsqn3ol')}
 
-                    <div class="col-4 text-center py-3"> 
-                        <img src='assets/images/cards/tutorial/tutGR.png' class='fadeIn animated col-12'>
-                        <span class='h4'>GREEN</span>
-                    </div>
+            <hr>
 
-                    <div class="col-4 text-center py-3"> 
-                        <img src='assets/images/cards/tutorial/tutPP.png' class='fadeIn animated col-12'>
-                        <span class='h4'>PURPLE</span>
-                    </div>
-                </div>
+            ${tutExamples('ppovn2st', 'rddin3ol', 'grsqn1sd')}
+
+            <hr>
+
+            ${tutExamples('grovn3ol', 'ppdin1sd', 'rdsqn2st')}
+
+            <span><em>Note: These are all sets</em></span>
 
             </div>
 
@@ -1073,29 +1072,54 @@ const tutExamples = (ex1, ex2, ex3, features = false) => {
             </div>
         `
     } else {
-
+        ex1 = set.buildCard(ex1);
+        ex2 = set.buildCard(ex2);
+        ex3 = set.buildCard(ex3);
         return `
 
             <div class='row'>
                 <div class="col-4 text-center py-3">
-                    <img src='assets/images/cards/${ex1}.png' class='fadeIn animated col-12'>
-                    <span class='h4'>SOLID</span>
+                    
+                    <img src='assets/images/cards/${ex1.card_id}.png' class='fadeIn animated col-12'>
+
+                    <ul class="py-2 px-3 list-group">
+                        <li class="list-group-item">Shape: <strong>${ex1.shape.toUpperCase()}</strong></li>
+                        <li class="list-group-item">Color: <strong>${ex1.color.toUpperCase()}</strong></li>
+                        <li class="list-group-item">Number: <strong>${ex1.number.toUpperCase()}</strong></li>
+                        <li class="list-group-item">Shading: <strong>${ex1.shading.toUpperCase()}</strong></li>
+                    </ul>
                 </div>
 
                 <div class="col-4 text-center py-3">
-                    <img src='assets/images/cards/${ex2}.png' class='fadeIn animated col-12'>
-                    <span class='h4'>STRIPED</span>
+                     
+                    <img src='assets/images/cards/${ex2.card_id}.png' class='fadeIn animated col-12'>
+                   
+                    <ul class="py-2 px-3 list-group">
+                        <li class="list-group-item">Shape: <strong>${ex2.shape.toUpperCase()}</strong></li>
+                        <li class="list-group-item">Color: <strong>${ex2.color.toUpperCase()}</strong></li>
+                        <li class="list-group-item">Number: <strong>${ex2.number.toUpperCase()}</strong></li>
+                        <li class="list-group-item">Shading: <strong>${ex2.shading.toUpperCase()}</strong></li>
+                    </ul>
                 </div>
 
                 <div class="col-4 text-center py-3">
-                    <img src='assets/images/cards/${ex3}.png' class='fadeIn animated col-12'>
-                    <span class='h4'>OUTLINED</span>
+
+                    <img src='assets/images/cards/${ex3.card_id}.png' class='fadeIn animated col-12'>
+
+                    <ul class="py-2 px-3 list-group">
+                        <li class="list-group-item">Shape: <strong>${ex3.shape.toUpperCase()}</strong></li>
+                        <li class="list-group-item">Color: <strong>${ex3.color.toUpperCase()}</strong></li>
+                        <li class="list-group-item">Number: <strong>${ex3.number.toUpperCase()}</strong></li>
+                        <li class="list-group-item">Shading: <strong>${ex3.shading.toUpperCase()}</strong></li>
+                    </ul>
+
                 </div>
             </div>
             
         `
-    }
-}
+    };
+};
+
 
 
 
