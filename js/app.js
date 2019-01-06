@@ -814,24 +814,28 @@ const renderTutorial = (page) => {
         
             <div class='col-12 text-center content-center js-tut-slide'>
                 <h1 class='fadeIn animated display-4'><strong><em>Shape</em></strong></h1>
-                
+                <span class='text-muted'><em>[Feature]</em></span>
+
                 ${tutExamples('ov', 'di', 'sq', true)}
 
                 <hr>
 
                 <h1 class='fadeIn animated display-4'><strong><em>Color</em></strong></h1>
+                <span class='text-muted'><em>[Feature]</em></span>
 
                 ${tutExamples('rd', 'gr', 'pp', true)}
 
                 <hr>
 
                 <h1 class='fadeIn animated display-4'><strong><em>Number</em></strong></h1>
+                <span class='text-muted'><em>[Feature]</em></span>
 
                 ${tutExamples('n1', 'n2', 'n3', true)}
 
                 <hr>
 
                 <h1 class='fadeIn animated display-4'><strong><em>Shading</em></strong></h1>
+                <span class='text-muted'><em>[Feature]</em></span>
 
                 ${tutExamples('sd', 'st', 'ol', true)}
 
@@ -852,18 +856,86 @@ const renderTutorial = (page) => {
             <div class='col-12 text-center content-center js-tut-slide'>
 
             <h1 class='fadeIn animated display-4'><strong><em>Examples</em></strong></h1>
-                
-            ${tutExamples('rdovn1sd', 'grdin2st', 'ppsqn3ol')}
+
+            <br>
+
+            <p class='fadeIn animated h5'>
+            A <strong>'SET'</strong> consists of <u>three</u> cards in which <u>each feature</u> is <strong>EITHER</strong> the same on each card <strong><em>OR</em></strong> is different on each card.
+            <br> 
+            That is to say, any feature in the <strong>'SET'</strong> of three cards is either common to all three cards or is different on each card.
+            </p>
+
+            ${tutExamples('rdsqn2ol', 'rdsqn2st', 'rdsqn2sd')}
+
+            <p class='fadeIn animated h5'>
+                The above example makes a <strong>'SET'</strong>, because each <em>feature</em> follows the rule.
+                <br>
+                <span><strong><u>Rule:</u></strong> Either all card share <em>this</em> feature, or they're all different.</span>
+            </p>
 
             <hr>
 
-            ${tutExamples('ppovn2st', 'rddin3ol', 'grsqn1sd')}
+            <p class='fadeIn animated h5'>
 
-            <hr>
+            Look at the each individual feature for each card below. 
 
-            ${tutExamples('grovn3ol', 'ppdin1sd', 'rdsqn2st')}
+            </p>
+            ${tutExamples('grovn1ol', 'grdin2st', 'grsqn3sd')}
+            
+            <br>
 
-            <span><em>Note: These are all sets</em></span>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">?</th>
+                    <th scope="col">Shape</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Number</th>
+                    <th scope="col">Shading</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">Card 1</th>
+                    <td>Tear</td>
+                    <td>Green</td>
+                    <td>One</td>
+                    <td>Outlined</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Card 2</th>
+                    <td>Triangle</td>
+                    <td>Green</td>
+                    <td>Two</td>
+                    <td>Striped</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Card 3</th>
+                    <td>Star</td>
+                    <td>Green</td>
+                    <td>Three</td>
+                    <td>Solid</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">FEATURE: </th>
+                    <td><strong>ALL DIFFERENT</strong></td>
+                    <td><strong>ALL SAME</strong></td>
+                    <td><strong>ALL DIFFERENT</strong></td>
+                    <td><strong>ALL DIFFERENT</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class='fadeIn animated h5'>
+
+                The cards above followed the rules for <em>EACH</em> feature. Therefore they make a <em>'SET'.</em>
+                <br>
+
+                Each feature was either different between each card <strong>OR</strong> they <strong>ALL</strong> shared it.
+
+            <p>
+
+
 
             </div>
 
@@ -878,24 +950,13 @@ const renderTutorial = (page) => {
             ${tutChevron(page)}
         
             <div class='col-12 text-center content-center js-tut-slide'>
-                <h1 class='fadeIn animated display-4'>Number</h1>
-                
-                <div class='row'>
-                    <div class="col-4 text-center py-3"> 
-                        <img src='assets/images/cards/tutorial/tutN1.png' class='fadeIn animated col-12'>
-                        <span class='h4'>ONE</span>
-                    </div>
+            <h1 class='fadeIn animated display-4'><strong><em>Examples</em></strong></h1>
 
-                    <div class="col-4 text-center py-3">
-                        <img src='assets/images/cards/tutorial/tutN2.png' class='fadeIn animated col-12'>
-                        <span class='h4'>TWO</span>
-                    </div>
-
-                    <div class="col-4 text-center py-3">
-                        <img src='assets/images/cards/tutorial/tutN3.png' class='fadeIn animated col-12'>
-                        <span class='h4'>THREE</span>
-                    </div>
-                </div>
+            <br>
+            
+            <p class='fadeIn animated h5'>
+                These cards <em>DO NOT</em> make a set.
+            </p>
 
             </div>
 
@@ -911,24 +972,19 @@ const renderTutorial = (page) => {
         
             <div class='col-12 text-center content-center js-tut-slide'>
 
-                <h1 class='fadeIn animated display-4'>Shading</h1>
-                    
-                <div class='row'>
-                    <div class="col-4 text-center py-3">
-                        <img src='assets/images/cards/tutorial/tutSD.png' class='fadeIn animated col-12'>
-                        <span class='h4'>SOLID</span>
-                    </div>
+            <h1 class='fadeIn animated display-4'><strong><em>Examples</em></strong></h1>
+                
+            ${tutExamples('rdovn1sd', 'grdin2st', 'ppsqn3ol')}
 
-                    <div class="col-4 text-center py-3">
-                        <img src='assets/images/cards/tutorial/tutST.png' class='fadeIn animated col-12'>
-                        <span class='h4'>STRIPED</span>
-                    </div>
+            <hr>
 
-                    <div class="col-4 text-center py-3">
-                        <img src='assets/images/cards/tutorial/tutOL.png' class='fadeIn animated col-12'>
-                        <span class='h4'>OUTLINED</span>
-                    </div>
-                </div>
+            ${tutExamples('ppovn2st', 'rddin3ol', 'grsqn1sd')}
+
+            <hr>
+
+            ${tutExamples('grovn3ol', 'ppdin1sd', 'rdsqn2st')}
+
+            <span><em>Note: These are all sets</em></span>
 
             </div>
 
