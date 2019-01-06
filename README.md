@@ -1,7 +1,8 @@
 # notSET Web Game  
-## ENTERED BETA: 12/31/18
 
-For real though... Game is just for fun. Primarily to test my ability as a developer.
+Game is just for fun, primarily to test my ability as a developer.
+
+## ENTERED BETA: 12/31/18
 
 * **Deployment** - *NOT SET* - [URL](https://fiveeightyeight.github.io/notSET_Game/)
 
@@ -15,10 +16,10 @@ For real though... Game is just for fun. Primarily to test my ability as a devel
 
 ## To Do
 
-* **Tutorial**: A tutorial or manual on how to play.
+* **Tutorial**: Manual on how to play.
 * **Time**: Tracks elapsed time.
-* **Design**: Design & aesthetics are a *WIP*.
-* **Code**: Code needs cleaning. 
+* **Design**: Aesthetics are a *WIP*.
+* **Code**: Needs cleaning. 
 
 ## Known Bugs
 
