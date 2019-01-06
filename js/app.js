@@ -794,9 +794,9 @@ const renderTutorial = (page) => {
             ${tutChevron(page, 'left')}
         
             <div class='mt-3 col-12 text-center content-center js-tut-slide'>
-                <h1 class='fadeIn animated display-4'>Rules: </h1>
+                <h1 class='fadeIn animated display-4'>Objective: </h1>
                 <p class='fadeIn animated h5'>
-                <span>The object of the game is to identify a <strong>'SET'</strong> of three cards from 12 cards laid out on the field.</span>
+                <span>The objective is to identify a <strong>'SET'</strong> of three cards from twelve cards laid out on the field.</span>
                 <br>
                 <span><u>Each</u> card has a variation of the following <strong><u>four features</u></strong>:</span>
                 </p>
@@ -877,7 +877,7 @@ const renderTutorial = (page) => {
 
             <p class='fadeIn animated h5'>
 
-            Look at the each individual feature for each card below. 
+                Look at the individual features for each card below. 
 
             </p>
             ${tutExamples('grovn1ol', 'grdin2st', 'grsqn3sd')}
@@ -950,13 +950,167 @@ const renderTutorial = (page) => {
             ${tutChevron(page)}
         
             <div class='col-12 text-center content-center js-tut-slide'>
+
             <h1 class='fadeIn animated display-4'><strong><em>Examples</em></strong></h1>
 
-            <br>
-            
+            ${tutExamples('ppovn2sd', 'ppovn3sd', 'rdovn1sd')}
+
             <p class='fadeIn animated h5'>
-                These cards <em>DO NOT</em> make a set.
+                
+                These cards <strong><em>DO NOT</em></strong> make a set.
+                
             </p>
+
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">?</th>
+                <th scope="col">Shape</th>
+                <th scope="col">Color</th>
+                <th scope="col">Number</th>
+                <th scope="col">Shading</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">Card 1</th>
+                <td>Tear</td>
+                <td class='bg-warning'>Purple</td>
+                <td>Two</td>
+                <td>Solid</td>
+                </tr>
+                <tr>
+                <th scope="row">Card 2</th>
+                <td>Tear</td>
+                <td class='bg-warning'>Purple</td>
+                <td>Three</td>
+                <td>Solid</td>
+                </tr>
+                <tr>
+                <th scope="row">Card 3</th>
+                <td>Tear</td>
+                <td class='bg-warning'>Red</td>
+                <td>One</td>
+                <td>Solid</td>
+                </tr>
+                <tr>
+                <th scope="row">FEATURE: </th>
+                <td><strong>ALL SAME</strong></td>
+                <td class='text-danger'><strong>2 SAME 1 DIFFERENT</strong></td>
+                <td><strong>ALL DIFFERENT</strong></td>
+                <td><strong>ALL SAME</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+            <hr>
+            <br>
+
+            ${tutExamples('grovn1ol', 'grovn2st', 'grsqn3sd')}
+
+            <p class='fadeIn animated h5'>
+                
+                These cards <strong><em>DO NOT</em></strong> make a set.
+                
+            </p>
+
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">?</th>
+                <th scope="col">Shape</th>
+                <th scope="col">Color</th>
+                <th scope="col">Number</th>
+                <th scope="col">Shading</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">Card 1</th>
+                <td class='bg-warning'>Tear</td>
+                <td>Green</td>
+                <td>One</td>
+                <td>Outlined</td>
+                </tr>
+                <tr>
+                <th scope="row">Card 2</th>
+                <td class='bg-warning'>Tear</td>
+                <td>Green</td>
+                <td>Two</td>
+                <td>Striped</td>
+                </tr>
+                <tr>
+                <th scope="row">Card 3</th>
+                <td class='bg-warning'>Star</td>
+                <td>Green</td>
+                <td>Three</td>
+                <td>Solid</td>
+                </tr>
+                <tr>
+                <th scope="row">FEATURE: </th>
+                <td class='text-danger'><strong>2 SAME 1 DIFFERENT</strong></td>
+                <td><strong>ALL SAME</strong></td>
+                <td><strong>ALL DIFFERENT</strong></td>
+                <td><strong>ALL DIFFERENT</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <hr>
+        <br>
+
+        ${tutExamples('ppdin3ol', 'ppdin3st', 'rddin3st')}
+
+            <p class='fadeIn animated h5'>
+                
+                These cards <strong><em>DO NOT</em></strong> make a set.
+                
+            </p>
+
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">?</th>
+                <th scope="col">Shape</th>
+                <th scope="col">Color</th>
+                <th scope="col">Number</th>
+                <th scope="col">Shading</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">Card 1</th>
+                <td>Triangle</td>
+                <td class='bg-warning'>Purple</td>
+                <td>Three</td>
+                <td class='bg-warning'>Outlined</td>
+                </tr>
+                <tr>
+                <th scope="row">Card 2</th>
+                <td>Triangle</td>
+                <td class='bg-warning'>Purple</td>
+                <td>Three</td>
+                <td class='bg-warning'>Striped</td>
+                </tr>
+                <tr>
+                <th scope="row">Card 3</th>
+                <td>Triangle</td>
+                <td class='bg-warning'>Red</td>
+                <td>Three</td>
+                <td class='bg-warning'>Striped</td>
+                </tr>
+                <tr>
+                <th scope="row">FEATURE: </th>
+                <td><strong>ALL SAME</strong></td>
+                <td class='text-danger'><strong>2 SAME 1 DIFFERENT</strong></td>
+                <td><strong>ALL SAME</strong></td>
+                <td class='text-danger'><strong>2 SAME 1 DIFFERENT</strong></td>
+                </tr>
+            </tbody>
+        </table>
 
             </div>
 
@@ -968,7 +1122,7 @@ const renderTutorial = (page) => {
 
             return `
 
-            ${tutChevron(page)}
+            ${tutChevron(page, 'right')}
         
             <div class='col-12 text-center content-center js-tut-slide'>
 
@@ -988,7 +1142,7 @@ const renderTutorial = (page) => {
 
             </div>
 
-            ${tutChevron(page)}
+            ${tutChevron(page, 'right')}
 
         `;
 
@@ -1208,7 +1362,7 @@ info.addEventListener('click', e => {
 
     } else if (e.target.matches('.js-chev-right')) {
 
-        if (tutorial.page < 5) {
+        if (tutorial.page < 4) {
             tutorial.page += 1;
             render(state);
         };
@@ -1227,7 +1381,7 @@ document.addEventListener('keyup', e => {
 
     } else if (e.keyCode === 39 && state.rules) { // right
 
-        if (tutorial.page < 5) {
+        if (tutorial.page < 4) {
             tutorial.page += 1;
             render(state);
         };
