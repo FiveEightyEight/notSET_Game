@@ -1,5 +1,5 @@
-# notSET Web Game  
-
+# !SET Web Game  
+![not SET, the web game](assets/images/header\!SET.png)
 Game is just for fun, primarily to test my ability as a developer.
 
 ## ENTERED BETA: 12/31/18
