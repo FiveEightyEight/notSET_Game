@@ -115,7 +115,6 @@ const set = (function() {
 			objTable[objTable.length - 1]["selected"] = false;
 		}
 
-		// render(state);
 		return objTable;
 	};
 
@@ -146,14 +145,7 @@ const set = (function() {
 		}
 	}
 
-	const allDecks = {
-		//     deck_id: {
-		//         cards, // array of card object ids
-		//     },
-		//     deck_id2: {
-		//         cards, // array of card object ids
-		//     },
-	};
+	const allDecks = {};
 
 	const buildDeck = (shuffled = false) => {
 		if (shuffled) {
@@ -381,16 +373,6 @@ const set = (function() {
 
 	// <<~~~~~~~~~~~~~~ Testing grounds ~~~~~~~~~~~~~~>>
 
-	// SHUFFLED_DECK= shuffle(buildAllCards());
-
-	// module.exports = {
-	//     buildDeck,
-	//     drawCard,
-	//     display,
-	//     checkTable,
-	//     play,
-	// };
-
 	return {
 		buildDeck,
 		buildCard,
@@ -401,11 +383,6 @@ const set = (function() {
 		checkSet,
 		play,
 	};
-
-	// rd    pp   gr
-	// ov    sq   di
-	// n1    n2   n3
-	// sd    st   ol
 })();
 
 const infoMap = {
@@ -424,7 +401,6 @@ const infoMap = {
 };
 
 // ----- Global Variables ------------>>
-// const set = require('./set.js');
 const info = document.querySelector(".js-info");
 const table = document.querySelector(".js-table");
 let hand = {};
@@ -452,16 +428,6 @@ const startNewGame = () => {
 
 	render(state);
 	draw();
-	/*
-    const play = set.play(state.table, state.deck);
-
-    state.deck = play.deck;
-    state.table = play.table;
-    state.noSet = play.noSet;
-
-    objectifyTable(state.table);
-    render(state);
-    */
 };
 
 const selectCard = index => {
@@ -504,15 +470,6 @@ const selectCard = index => {
 			}
 
 			break;
-
-		// case 3:
-
-		// if (chkSet[currentCard.card_id]) {
-		//     delete chkSet[state.table_state[index].card_id];
-		//     state.table_state[index].selected = false;
-		// }
-		// render(state);
-		// break;
 	}
 };
 
@@ -549,9 +506,6 @@ const checkHand = cb => {
 		state.table = newTable;
 		state.table_state = newTable_state;
 		hand = {};
-		// render(state);
-		// console.log(`SET!`)
-		// alert(`SET!`)
 		cb(complete);
 	} else {
 		for (let i = 0; i < keys.length; i++) {
@@ -561,8 +515,6 @@ const checkHand = cb => {
 		hand = {};
 		state.mistakes += 1;
 		render(state);
-		// console.log(`!SET`)
-		// alert(`!SET`)
 	}
 };
 
@@ -590,7 +542,6 @@ const draw = (noSet = false) => {
 		const play = set.play(state.table, state.deck, noSet);
 		state.table = [];
 		state.table_state = [];
-		// render(state);
 		state.remaining = play.deck.length;
 		state.deck = play.deck;
 		state.table = play.table;
@@ -604,7 +555,6 @@ const draw = (noSet = false) => {
 		const play = set.play(state.table, state.deck);
 		state.table = [];
 		state.table_state = [];
-		// render(state);
 		state.remaining = play.deck.length;
 		state.deck = play.deck;
 		state.table = play.table;
@@ -621,10 +571,7 @@ const checkField = state => {
 		render(state);
 		alert(`THERE IS A SET!`);
 	} else {
-		// state.noSet = true;
 		draw(true);
-		// alert('this feature is in beta and not fully tested');
-		// alert(`There is NO SET but I haven't implemented this yet lol`)
 	}
 };
 
@@ -632,21 +579,6 @@ const checkField = state => {
 
 const rules = () => {
 	state.rules = true;
-	// let tutPlay = set.buildDeck();
-	// tutPlay = set.play(tutorial.table, tutPlay);
-
-	// tutorial.deck = tutPlay.deck;
-	// tutorial.table = tutPlay.table;
-	// tutorial.table_state = set.objectifyTable(tutorial.table);
-
-	/*
-    tutorial = {
-    page: 0,
-    deck: [],
-    table: [],
-    table_state: [],
-    }
-    */
 	render(state);
 };
 
@@ -1315,7 +1247,6 @@ const render = state => {
 
 		// if table state has any cards
 		if (state.table_state.length > 0) {
-			// render table
 
 			let innerHTML = "";
 
@@ -1330,7 +1261,6 @@ const render = state => {
                     <img src='assets/images/cards/${currentCard.card_id}.png' class='box-shadow border border-danger col-12 pulse animated js-card' data-index=${i}>
                     </div>
                     `;
-					// <a class="badge badge-primary p-5 js-card" data-index=${i}>${currentCard.card_id}</a>
 				} else {
 					innerHTML += `
                     <div class="col-3 text-center border-bottom py-3"> 
@@ -1338,9 +1268,6 @@ const render = state => {
                     </div>
                     `;
 				}
-				// <span class='font-weight-bold col-12'>${currentCard.color.toUpperCase()}   ${currentCard.shape}</span>
-				// <a class="badge badge-secondary p-5 col-12 js-card" data-index=${i}>${currentCard.card_id}</a>
-				// <span class='font-weight-bold col-12'>${currentCard.number}   ${currentCard.shading.toUpperCase()}</span>
 			}
 
 			table.innerHTML = innerHTML;
