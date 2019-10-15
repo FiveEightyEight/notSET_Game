@@ -142,23 +142,7 @@ const set = (function () {
                 this.discard = discard
         }
     }
-    /*
-    const deck = { // Server Side deck
-        deck_id, // unique id for deck, assortment of letters and numbers // api can track what deck to reference 
-        cards, // array of cards in deck
-        remaining, // number of cards in deck
-        discard, // discarded cards
 
-    }
-    const playDeck = { // Player Side Deck
-        deck_id, // unique id for deck, assortment of letters and numbers // api can track what deck to reference 
-        remaining, // number of cards left to draw
-        drawn, // cards currently in play
-        discard, // discarded cards
-
-    }
-
-    */
     const allDecks = {
         //     deck_id: {
         //         cards, // array of card object ids
