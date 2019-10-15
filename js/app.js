@@ -213,8 +213,6 @@ const set = (function () {
             let c1ft = card1[i] + card1[i + 1];
             let c2ft = card2[i] + card2[i + 1];
             let c3ft = card3[i] + card3[i + 1];
-
-
             if (!checkFeatures(c1ft, c2ft, c3ft)) {
                 return false;
             }
@@ -279,15 +277,6 @@ const set = (function () {
                     const drawnCard = deck.shift();
                     table.push(drawnCard);
                 };
-
-                /*
-                for (let i = 0; i < 15; i++) {
-                    if (table[i] === undefined) {
-                        const drawnCard = deck.shift();
-                        table[i] = drawnCard;
-                    };
-                }
-                */
             };
             return {
                 table,
