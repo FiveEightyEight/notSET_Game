@@ -21,6 +21,17 @@
 * **Design**: Aesthetics are a *WIP*.
 * **Code**: Needs cleaning. 
 
+## Card Properties
+
+|Property | code | Description
+|:---- | :----: | -----: |
+|id | c s n d | unique id for each card - permutation of color, shape, number, and shading - 81 total |
+|img| |  image
+|color| rd    pp   gr | red, purple or green |         
+|shape|  ov    sq   di | oval, squiggle or diamond |
+|number| n1    n2   n3 | one, two or three |             
+|shading| sd    st   ol | solid, striped or outlined |
+
 ## Known Bugs
 
 * **N/A**: Needs more testing
