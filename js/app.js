@@ -122,25 +122,15 @@ const set = (function () {
     };
 
     const checkFeatures = (c1, c2, c3) => {
-
         if (c1 === c2 && c1 === c3) {
-            // console.log(`all the same`);
             return true;
         }
         if (c1 !== c2 && c1 !== c3 && c2 !== c3) {
-            // console.log(`all different`);
             return true;
         }
-
-        // console.log(`two the same`);
         return false;
-
     };
 
-
-    // have a function that takes an id and spits out a card 
-
-    /* how to track what cards are in deck and NOT produce dups? */
 
     /*      <--- deck builder --->       */
 
