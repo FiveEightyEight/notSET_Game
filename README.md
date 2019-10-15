@@ -1,6 +1,6 @@
 # !SET Web Game  
 ![not SET, the web game](assets/images/header\!SET.png)
-Game is just for fun, primarily to test my ability as a developer.
+#### Game is just for fun, primarily to test my ability as a developer.
 
 ## ENTERED BETA: 12/31/18
 
@@ -16,7 +16,7 @@ Game is just for fun, primarily to test my ability as a developer.
 
 ## To Do
 
-* **Tutorial**: Manual on how to play.
+* **Tutorial**: Manual on how to play *WIP*.
 * **Time**: Tracks elapsed time.
 * **Design**: Aesthetics are a *WIP*.
 * **Code**: Needs cleaning. 
