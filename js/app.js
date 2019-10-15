@@ -2,22 +2,6 @@
 
 const set = (function () {
 
-    // card make up
-    /*
-    const card = {
-        id, // c s n d  // unique id for each card // 81 total
-        img, // image
-        color, // (red, purple or green)           rd    pp   gr
-        shape, // (oval, squiggle or diamond)      ov    sq   di
-        number, // (one, two or three)             n1    n2   n3
-        shading, // (solid, striped or outlined)   sd    st   ol
-    }
-    */
-
-    // rd    pp   gr
-    // ov    sq   di
-    // n1    n2   n3
-    // sd    st   ol
     const allCards = {};
 
     // BUILDERS
@@ -80,7 +64,7 @@ const set = (function () {
 
     // <--- HELPER FUNCTIONS --> //
     const shuffle = (array) => {
-        var currentIndex = array.length,
+        let currentIndex = array.length,
             temporaryValue, randomIndex;
 
         // While there remain elements to shuffle...
