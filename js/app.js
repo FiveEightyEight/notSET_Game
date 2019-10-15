@@ -89,7 +89,7 @@ const set = (function () {
         // after the decimal.
 
         // by https://gist.github.com/gordonbrander
-        return Math.random().toString(36).substr(2, 9);
+        return Math.random().toString(36).substring(2, 11);
     };
 
     const objectifyTable = (table) => {
